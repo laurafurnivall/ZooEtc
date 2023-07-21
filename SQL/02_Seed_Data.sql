@@ -4,6 +4,7 @@ GO
 set identity_insert [Users] on
 insert into Users ([Id],FirebaseUserId, FirstName, LastName, UserName, Email, isAdmin) values (1, '0Mea1S95LIT3B3vJqhgq7djdVsN2', 'Laura', 'Furnivall', 'grrlaurabear', 'laura@laurafurnivall.com', 1);
 insert into Users ([Id],FirebaseUserId, FirstName, LastName, UserName, Email, isAdmin) values (2, 'apq0dyszecYxJDW0JokS9wpwLLe2', 'Zoo', 'Keeper', 'khaki4eva', 'zoo@keeper.com', 0);
+insert into Users ([Id],FirebaseUserId, FirstName, LastName, UserName, Email, isAdmin) values (3, 'XIOT3b560CeqcuYAREKtTe9APml1', 'Faith', 'Ivalee', 'faithivalee', 'faith@faith.com', 0);
 set identity_insert [Users] off
 
 
