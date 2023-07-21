@@ -5,7 +5,7 @@ using ZooEtc.Models;
 
 namespace ZooEtc.Models
 {
-    public class UniformReviews
+    public class GearReviews
     {
         public int Id { get; set; }
 
@@ -16,7 +16,7 @@ namespace ZooEtc.Models
         public string ReviewDate { get; set; }
 
         [Range(1, 5, ErrorMessage = "Longevity rating must be between 1 and 5.")]
-        public int Longetivity { get; set; }
+        public int Longevity { get; set; }
 
         [Range(1, 5, ErrorMessage = "Versatility rating must be between 1 and 5.")]
         public int Versatility { get; set; }
@@ -28,18 +28,18 @@ namespace ZooEtc.Models
         public string Comments { get; set; }
         public bool isApproved { get; set; }
 
-        public Uniforms Uniform { get; set; }
+        public Gear Gear { get; set; }
 
-        public double AverageRating
+        public int AverageRating
         {
             get
             {
                 var ratings = new[]
                 {
-                    Longetivity, Versatility, Comfort
+                    Longevity, Versatility, Comfort
                 };
 
-                var average = (double)ratings.Average();
+                var average = (int)ratings.Average();
                 return average;
             }
         }

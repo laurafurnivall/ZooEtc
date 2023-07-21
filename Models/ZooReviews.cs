@@ -43,7 +43,7 @@ namespace ZooEtc.Models
         public bool isApproved { get; set; }
         public Zoos Zoo { get; set; }
 
-        public double AverageRating
+        public int AverageRating
         {
             get
             {
@@ -52,7 +52,7 @@ namespace ZooEtc.Models
                     AnimalCare, Culture, ConservationInitiative, Salary, Benefits, Leadership, Inclusivity
                 };
 
-                var average = (double)ratings.Average();
+                var average = (int)ratings.Average();
                 return average;
             }
         }
