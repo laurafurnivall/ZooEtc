@@ -85,8 +85,8 @@ namespace ZooEtc.Repositories
                 {
                     cmd.CommandText = @"SELECT u.Id, u.FirebaseUserId, u.FirstName, u.LastName, u.UserName, u.Email, u.isAdmin
                                         FROM Users u
-                                        WHERE u.Id = @FirebasseUserId";
-                    DbUtils.AddParameter(cmd, "@Id", firebaseUserId);
+                                        WHERE u.FirebaseUserId = @FirebaseUserId";
+                    DbUtils.AddParameter(cmd, "@FirebaseUserId", firebaseUserId);
 
                     Users user = null;
 
@@ -96,7 +96,7 @@ namespace ZooEtc.Repositories
                         user = new Users()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            FirebaseUserId = DbUtils.GetString(reader, "FirebaseUserId"),
+                            FirebaseUserId = firebaseUserId,
                             FirstName = DbUtils.GetString(reader, "FirstName"),
                             LastName = DbUtils.GetString(reader, "LastName"),
                             UserName = DbUtils.GetString(reader, "UserName"),
