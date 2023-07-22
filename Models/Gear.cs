@@ -1,6 +1,6 @@
 ﻿namespace ZooEtc.Models
 {
-    public class Uniforms
+    public class Gear
     {
         public int Id { get; set; }
         public string Title { get; set; }

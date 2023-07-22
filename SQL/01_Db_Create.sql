@@ -9,10 +9,10 @@ GO
 
 DROP TABLE IF EXISTS [Users];
 DROP TABLE IF EXISTS [Zoos];
-DROP TABLE IF EXISTS [Uniforms];
-DROP TABLE IF EXISTS [UniformTypes];
+DROP TABLE IF EXISTS [Gear];
+DROP TABLE IF EXISTS [GearTypes];
 DROP TABLE IF EXISTS [Types];
-DROP TABLE IF EXISTS [UniformReviews];
+DROP TABLE IF EXISTS [GearReviews];
 DROP TABLE IF EXISTS [JobListings];
 DROP TABLE IF EXISTS [ZooReviews];
 GO
@@ -32,6 +32,8 @@ CREATE TABLE [Zoos] (
   [Id] int PRIMARY KEY IDENTITY(1, 1),
   [ZooName] nvarchar(255) NOT NULL,
   [Address] nvarchar(255) NOT NULL,
+  [City] nvarchar(255) NOT NULL,
+  [State] nvarchar(255) NOT NULL,
   [PhoneNumber] nvarchar(255) NOT NULL,
   [ZooImgUrl] nvarchar(255) NOT NULL,
   [ZooUrl] nvarchar(255) NOT NULL,
@@ -56,7 +58,7 @@ CREATE TABLE [ZooReviews] (
 )
 GO
 
-CREATE TABLE [Uniforms] (
+CREATE TABLE [Gear] (
   [Id] int PRIMARY KEY IDENTITY(1, 1),
   [Title] nvarchar(255) NOT NULL,
   [Description] nvarchar(255) NOT NULL,
@@ -65,10 +67,10 @@ CREATE TABLE [Uniforms] (
 )
 GO
 
-CREATE TABLE [UniformTypes] (
+CREATE TABLE [GearTypes] (
   [Id] int PRIMARY KEY IDENTITY(1, 1),
-  [TypeId] int NOT NULL,
-  [UniformId] int NOT NULL
+  [GearId] int NOT NULL,
+  [TypeId] int NOT NULL
 )
 GO
 
@@ -78,12 +80,12 @@ CREATE TABLE [Types] (
 )
 GO
 
-CREATE TABLE [UniformReviews] (
+CREATE TABLE [GearReviews] (
   [Id] int PRIMARY KEY IDENTITY(1, 1),
   [UserId] int NOT NULL,
-  [UniformId] int NOT NULL,
+  [GearId] int NOT NULL,
   [ReviewDate] nvarchar(255) NOT NULL,
-  [Longetivity] int,
+  [Longevity] int,
   [Versatility] int,
   [Comfort] int,
   [Comments] nvarchar(255),
@@ -93,13 +95,15 @@ GO
 
 CREATE TABLE [JobListings] (
   [Id] int PRIMARY KEY IDENTITY(1, 1),
+  [UserId] int NOT NULL,
   [ZooId] int NOT NULL,
   [Title] nvarchar(255) NOT NULL,
   [PostingDate] Date NOT NULL,
   [RemovalDate] Date NOT NULL,
   [Description] nvarchar(255) NOT NULL,
   [Salary] nvarchar(255) NOT NULL,
-  [JobUrl] nvarchar(255) NOT NULL
+  [JobUrl] nvarchar(255) NOT NULL,
+  [isApproved] bit
 )
 GO
 
@@ -109,19 +113,20 @@ GO
 ALTER TABLE [ZooReviews] ADD FOREIGN KEY ([ZooId]) REFERENCES [Zoos] ([Id])
 GO
 
-ALTER TABLE [UniformTypes] ADD FOREIGN KEY ([TypeId]) REFERENCES [Types] ([Id])
+ALTER TABLE [GearTypes] ADD FOREIGN KEY ([GearId]) REFERENCES [Gear] ([Id])
 GO
 
-ALTER TABLE [UniformTypes] ADD FOREIGN KEY ([UniformId]) REFERENCES [Uniforms] ([Id])
+ALTER TABLE [GearTypes] ADD FOREIGN KEY ([TypeId]) REFERENCES [Types] ([Id])
 GO
 
-ALTER TABLE [UniformReviews] ADD FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id])
+ALTER TABLE [GearReviews] ADD FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id])
 GO
 
-ALTER TABLE [UniformReviews] ADD FOREIGN KEY ([UniformId]) REFERENCES [Uniforms] ([Id])
+ALTER TABLE [GearReviews] ADD FOREIGN KEY ([GearId]) REFERENCES [Gear] ([Id])
+GO
+
+ALTER TABLE [JobListings] ADD FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id])
 GO
 
 ALTER TABLE [JobListings] ADD FOREIGN KEY ([ZooId]) REFERENCES [Zoos] ([Id])
 GO
-
-

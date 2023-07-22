@@ -7,7 +7,7 @@ using ZooEtc.Models;
 
 namespace ZooEtc.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
