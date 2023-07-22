@@ -3,7 +3,7 @@ import { getAllZoos } from "../../modules/zooManager";
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function ZooList({userProfile}) {
     const [zoos, setZoos] = useState([]);
@@ -16,9 +16,10 @@ export default function ZooList({userProfile}) {
     useEffect(() => {
         getAllZoos().then((zoos) => {
             setZoos(zoos);
-            setFilteredZoos(zoos);
         });
-    }, [zoos]);
+    }, []);
+
+
     
     
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -28,12 +29,20 @@ export default function ZooList({userProfile}) {
     };
 
 
-    const data = filteredZoos.map((z) => ({
+    const data = zoos.map((z) => ({
         key: z.id,
         ZooName: z.zooName,
         City: z.city,
         State: z.state,
-
+        ZooUrl: <Link
+        href={z.zooUrl}
+        onClick={(e) => {
+          e.preventDefault();
+          window.open(z.zooUrl, "_blank");
+        }}
+      >
+        {z.zooUrl}
+      </Link>
     }));
 
 
@@ -76,7 +85,7 @@ export default function ZooList({userProfile}) {
                         Search
                     </Button>
                     <Button
-                        onClick={() => {clearFilters && handleReset(clearFilters) && getAllZoos();}}
+                        onClick={() => {clearFilters && handleReset(clearFilters)}}
                         size="small"
                         style={{
                             width: 90,
@@ -145,10 +154,15 @@ export default function ZooList({userProfile}) {
             key: 'State',
             ...getColumnSearchProps('State'),
         },
+        {
+            title: 'Website',
+            dataIndex: 'ZooUrl',
+            key: 'ZooUrl',
+        },
     ];
 
     return <>
-    {userProfile.isAdmin === true ? <Button 
+    {userProfile && userProfile.isAdmin === true ? <Button 
     onClick={() =>
         navigate("./Add")}>Add a Zoo</Button> : ""}
     <Table columns={columns} dataSource={data} />
