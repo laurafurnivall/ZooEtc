@@ -6,25 +6,32 @@ import Highlighter from 'react-highlight-words';
 
 export default function ZooList() {
     const [zoos, setZoos] = useState([]);
+    const [filteredZoos, setFilteredZoos] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
+    
+    useEffect(() => {
+        getAllZoos().then((zoos) => {
+            setZoos(zoos);
+            setFilteredZoos(zoos);
+        });
+    }, []);
+    
+    
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm();
         setSearchText(selectedKeys[0]);
         setSearchedColumn(dataIndex);
     };
 
-    useEffect(() => {
-        getAllZoos().then(setZoos);
-    }, []);
 
-    const data = zoos.map((z) => ({
+    const data = filteredZoos.map((z) => ({
         key: z.id,
         ZooName: z.zooName,
         City: z.city,
         State: z.state,
-        
+
     }));
 
 
@@ -67,7 +74,7 @@ export default function ZooList() {
                         Search
                     </Button>
                     <Button
-                        onClick={() => handleReset(clearFilters)}
+                        onClick={() => clearFilters && handleReset(clearFilters)}
                         size="small"
                         style={{
                             width: 90,
