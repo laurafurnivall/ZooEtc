@@ -1,121 +1,145 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useRef, useEffect, useState } from "react";
 import { getAllZoos } from "../../modules/zooManager";
-import { Button, Space, Table } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import { Button, Input, Space, Table } from 'antd';
+import Highlighter from 'react-highlight-words';
 
 export default function ZooList() {
     const [zoos, setZoos] = useState([]);
-    const navigate = useNavigate();
-    const [filteredZoos, setFilteredZoos] = useState({})
-    const [sortedZoos, setSortedZoos] = useState({});
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
+    const searchInput = useRef(null);
+    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+        confirm();
+        setSearchText(selectedKeys[0]);
+        setSearchedColumn(dataIndex);
+    };
 
     useEffect(() => {
         getAllZoos().then(setZoos);
     }, []);
 
-    const handleChange = (pagination, filters, sorter) => {
-        console.log('Various parameters', pagination, filters, sorter);
-        setFilteredZoos(filters);
-        setSortedZoos(sorter);
+    const data = zoos.map((z) => ({
+        key: z.id,
+        ZooName: z.zooName,
+        City: z.city,
+        State: z.state,
+        
+    }));
+
+
+    const handleReset = (clearFilters) => {
+        if (clearFilters) {
+            clearFilters();
+        }
+        setSearchText('');
     };
 
-    const clearFilters = () => {
-        setFilteredZoos({});
-    }
-
-    const clearAll = () => {
-        setFilteredZoos({});
-        setSortedZoos({});
-    };
-
-
-    let zooArray = [];
-    const data = () => {
-        zoos.map((z) => {
-            return zooArray.push({
-                key: z.id,
-                ZooName: z.zooName,
-                City: z.city,
-                State: z.state,
-                Rating: z.averageRating,
-            });
-        });
-    };
-
-    data();
-
-    const average = () => {
-        zoos.map((z) => {
-            console.log(z.averageRating)
-        })
-    }
-    average();
+    const getColumnSearchProps = (dataIndex) => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+            <div
+                style={{
+                    padding: 8,
+                }}
+                onKeyDown={(e) => e.stopPropagation()}
+            >
+                <Input
+                    ref={searchInput}
+                    placeholder={`Search ${dataIndex}`}
+                    value={selectedKeys[0]}
+                    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                    style={{
+                        marginBottom: 8,
+                        display: 'block',
+                    }}
+                />
+                <Space>
+                    <Button
+                        type="primary"
+                        onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />}
+                        size="small"
+                        style={{
+                            width: 90,
+                        }}
+                    >
+                        Search
+                    </Button>
+                    <Button
+                        onClick={() => handleReset(clearFilters)}
+                        size="small"
+                        style={{
+                            width: 90,
+                        }}
+                    >
+                        Reset
+                    </Button>
+                    <Button
+                        type="link"
+                        size="small"
+                        onClick={() => {
+                            close();
+                        }}
+                    >
+                        close
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: (filtered) => (
+            <SearchOutlined
+                style={{
+                    color: filtered ? '#1677ff' : undefined,
+                }}
+            />
+        ),
+        onFilter: (value, record) =>
+            record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+        onFilterDropdownOpenChange: (visible) => {
+            if (visible) {
+                setTimeout(() => searchInput.current?.select(), 100);
+            }
+        },
+        render: (text) =>
+            searchedColumn === dataIndex ? (
+                <Highlighter
+                    highlightStyle={{
+                        backgroundColor: '#ffc069',
+                        padding: 0,
+                    }}
+                    searchWords={[searchText]}
+                    autoEscape
+                    textToHighlight={text ? text.toString() : ''}
+                />
+            ) : (
+                text
+            ),
+    });
 
     const columns = [
         {
             title: 'Zoo Name',
             dataIndex: 'ZooName',
-            key: 'zooName',
-            filters: zoos.map((z) => ({
-              text: z.zooName,
-              value: z.zooName,
-            })),
-            filteredValue: filteredZoos.ZooName || null,
-            onFilter: (value, record) => record.zooName && record.zooName.includes(value),
-            sorter: (a, b) => {
-              const aName = a.zooName || ''; // Handle potential null values
-              const bName = b.zooName || ''; // Handle potential null values
-              return aName.localeCompare(bName); // Use localeCompare for string comparison
-            },
-            sortOrder: sortedZoos.columnKey === 'zooName' ? sortedZoos.order : null,
-            ellipsis: true,
-          },
+            key: 'ZooName',
+            width: '30%',
+            ...getColumnSearchProps('ZooName')
+        },
         {
             title: 'City',
             dataIndex: 'City',
             key: 'City',
-            filters: zoos.map((z) => ({
-                text: z.city,
-                value: z.city,
-            })),
-            filteredValue: filteredZoos.city || null,
-            onFilter: (value, record) => record.city.includes(value),
-            sorter: (a, b) => {
-                if (a.city && b.city) {
-                  return a.city.length - b.city.length;
-                }
-                return 0;
-            },
-            sortOrder: sortedZoos.columnKey === 'City' ? sortedZoos.order : null,
-            ellipsis: true,
         },
         {
             title: 'State',
             dataIndex: 'State',
             key: 'State',
-            filters: zoos.map((z) => ({
-                text: z.state,
-                value: z.state,
-            })),
-            filteredValue: filteredZoos.state || null,
-            onFilter: (value, record) => record.state.includes(value),
-            sorter: (a, b) => a.state.length - b.state.length,
-            sortOrder: sortedZoos.columnKey === 'State' ? sortedZoos.order : null,
-            ellipsis: true,
+            ...getColumnSearchProps('State'),
         },
     ];
 
     return (<>
-        <Space
-            style={{
-                marginBottom: 16,
-            }}
-        >
-            <Button onClick={clearFilters}>Clear filters</Button>
-            <Button onClick={clearAll}>Clear filters and sorters</Button>
-        </Space>
-        <Table columns={columns} dataSource={zooArray} onChange={handleChange} />
+        <Table columns={columns} dataSource={data} />
     </>
-
-    )
+    );
 }
