@@ -46,7 +46,29 @@ namespace ZooEtc.Repositories
 
         public Zoos GetById(int id) { throw new NotImplementedException(); }
 
-        public void Add(Zoos zoo) { throw new NotImplementedException(); }
+        public void Add(Zoos zoo) 
+        { 
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"INSERT INTO Zoos (ZooName,[Address], City, State, PhoneNumber, ZooImgUrl, ZooUrl, [Description])
+                                        OUTPUT INSERTED.Id
+                                        VALUES (@ZooName, @Address, @City, @State, @PhoneNumber, @ZooImgUrl, @ZooUrl, @Description)";
+                    DbUtils.AddParameter(cmd, "@ZooName", zoo.ZooName);
+                    DbUtils.AddParameter(cmd, "@Address", zoo.Address);
+                    DbUtils.AddParameter(cmd, "@City", zoo.City);
+                    DbUtils.AddParameter(cmd, "@State", zoo.State);
+                    DbUtils.AddParameter(cmd, "@PhoneNumber", zoo.PhoneNumber);
+                    DbUtils.AddParameter(cmd, "@ZooImgUrl", zoo.ZooImgUrl);
+                    DbUtils.AddParameter(cmd, "@ZooUrl", zoo.ZooUrl);
+                    DbUtils.AddParameter(cmd, "@Description", zoo.Description);
+
+                    zoo.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
 
         public void Update(Zoos zoo) { throw new NotImplementedException(); }
 

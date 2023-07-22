@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using ZooEtc.Models;
 
 namespace ZooEtc.Models
 {
@@ -32,6 +34,8 @@ namespace ZooEtc.Models
         public string ZooUrl { get; set; }
 
         public string Description { get; set; }
+
+        public List <ZooReviews> ZooReviews { get; set; }
 
     }
 }
