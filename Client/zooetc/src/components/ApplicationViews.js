@@ -17,7 +17,7 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="Zoos">
-                        <Route index element={isLoggedIn? <ZooList/> : <Navigate to="/login" />}/>
+                        <Route index element={isLoggedIn? <ZooList userProfile={userProfile}/> : <Navigate to="/login" />}/>
                     </Route>
                     <Route path="*" element={<p>Whoops, nothing here...</p>} />
                     </Route>

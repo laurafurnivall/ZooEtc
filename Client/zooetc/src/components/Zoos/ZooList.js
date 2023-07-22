@@ -4,7 +4,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
 
-export default function ZooList() {
+export default function ZooList({userProfile}) {
     const [zoos, setZoos] = useState([]);
     const [filteredZoos, setFilteredZoos] = useState([]);
     const [searchText, setSearchText] = useState('');
@@ -74,7 +74,7 @@ export default function ZooList() {
                         Search
                     </Button>
                     <Button
-                        onClick={() => clearFilters && handleReset(clearFilters)}
+                        onClick={() => {clearFilters && handleReset(clearFilters) && getAllZoos();}}
                         size="small"
                         style={{
                             width: 90,
@@ -145,8 +145,8 @@ export default function ZooList() {
         },
     ];
 
-    return (<>
-        <Table columns={columns} dataSource={data} />
-    </>
-    );
+    return <>
+    {userProfile.isAdmin === true ? <Button>Add a Zoo</Button> : ""}
+    <Table columns={columns} dataSource={data} />
+</>
 }
