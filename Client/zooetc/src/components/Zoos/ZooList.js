@@ -3,6 +3,7 @@ import { getAllZoos } from "../../modules/zooManager";
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
+import { useNavigate } from "react-router-dom";
 
 export default function ZooList({userProfile}) {
     const [zoos, setZoos] = useState([]);
@@ -10,13 +11,14 @@ export default function ZooList({userProfile}) {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
+    const navigate = useNavigate();
     
     useEffect(() => {
         getAllZoos().then((zoos) => {
             setZoos(zoos);
             setFilteredZoos(zoos);
         });
-    }, []);
+    }, [zoos]);
     
     
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -146,7 +148,9 @@ export default function ZooList({userProfile}) {
     ];
 
     return <>
-    {userProfile.isAdmin === true ? <Button>Add a Zoo</Button> : ""}
+    {userProfile.isAdmin === true ? <Button 
+    onClick={() =>
+        navigate("./Add")}>Add a Zoo</Button> : ""}
     <Table columns={columns} dataSource={data} />
 </>
 }
