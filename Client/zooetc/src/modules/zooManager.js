@@ -21,6 +21,25 @@ export const getAllZoos = () => {
     });
 };
 
+export const getZoo = (id) => {
+    return getToken().then((token) => {
+        return fetch(`${zooUrl}/${id}`, {
+            method: "GET", 
+            headers: {
+                Authorization: `Bear ${token}`,
+            },
+        }).then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error(
+                    "Whoops! Couldn't retrieve the zoo!"
+                );
+            }
+        });
+    });
+};
+
 export const addZoo = (zoo) => {
     return getToken().then((token) => {
         return fetch(`${zooUrl}/add`, {
