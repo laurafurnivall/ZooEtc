@@ -21,5 +21,12 @@ namespace ZooEtc.Controllers
         {
             return Ok(_zooRepository.GetAll());
         }
+
+        [HttpPost("add")]
+        public IActionResult Post(Zoos zoo)
+        {
+            _zooRepository.Add(zoo);
+            return CreatedAtAction("Get", new {id =  zoo.Id}, zoo);
+        }
     }
 }
