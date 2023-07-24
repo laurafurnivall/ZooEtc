@@ -5,6 +5,7 @@ import {
 } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function ZooForm({ zooName, address, city,
     state, phoneNumber, zooImgUrl,
@@ -16,6 +17,8 @@ export default function ZooForm({ zooName, address, city,
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+    const navigate = useNavigate();
     return <>
         <Form
             name='ZooForm'
@@ -182,6 +185,7 @@ export default function ZooForm({ zooName, address, city,
         </Form.Item>
         <Form.Item>
             <Button onClick={handleSave}>Save</Button>
+            <Button onClick={() => navigate("/Zoos")}>Cancel</Button>
         </Form.Item>
 
     </Form >
