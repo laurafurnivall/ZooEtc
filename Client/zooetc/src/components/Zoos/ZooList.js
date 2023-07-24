@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { getAllZoos } from "../../modules/zooManager";
-import { SearchOutlined } from '@ant-design/icons';
+import { FontSizeOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { useNavigate, Link } from "react-router-dom";
+import {InfoCircleOutlined, EditOutlined, DeleteOutlined} from '@ant-design/icons';
 
 export default function ZooList({userProfile}) {
     const [zoos, setZoos] = useState([]);
@@ -42,7 +43,15 @@ export default function ZooList({userProfile}) {
         }}
       >
         {z.zooUrl}
-      </Link>
+      </Link>,
+      Actions: <Space>
+        <InfoCircleOutlined 
+            style={{ fontSize: '16px'}}/>
+        <EditOutlined 
+            style={{ fontSize: '16px'}}/>
+        <DeleteOutlined 
+            style={{ fontSize: '16px'}}/>
+      </Space>
     }));
 
 
@@ -158,6 +167,11 @@ export default function ZooList({userProfile}) {
             title: 'Website',
             dataIndex: 'ZooUrl',
             key: 'ZooUrl',
+        },
+        {
+            title: 'Actions',
+            dataIndex: 'Actions',
+            key: 'Actions',
         },
     ];
 
