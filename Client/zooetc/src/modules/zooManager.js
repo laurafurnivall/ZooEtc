@@ -85,3 +85,14 @@ export const editZoo = (id, zoo) => {
         })
     })
 }
+
+export const deleteZoo = (zooId) => {
+    return getToken().then(token => {
+        return fetch(`${zooUrl}/Delete/${zooId}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    })
+}

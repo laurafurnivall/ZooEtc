@@ -52,7 +52,7 @@ namespace ZooEtc.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {
             _zooRepository.Delete(id);
