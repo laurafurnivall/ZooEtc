@@ -1,26 +1,40 @@
 import React, { useRef, useEffect, useState } from "react";
-import { getAllZoos } from "../../modules/zooManager";
-import { FontSizeOutlined, SearchOutlined } from '@ant-design/icons';
-import { Button, Input, Space, Table } from 'antd';
+import { getAllZoos, deleteZoo } from "../../modules/zooManager";
+import { Button, Input, Space, Table, Modal } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { useNavigate, Link } from "react-router-dom";
-import { InfoCircleOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, EditOutlined, DeleteOutlined, ExclamationCircleFilled, SearchOutlined  } from '@ant-design/icons';
 
 export default function ZooList({ userProfile }) {
     const [zoos, setZoos] = useState([]);
-    const [filteredZoos, setFilteredZoos] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
     const navigate = useNavigate();
+    const { confirm } = Modal;
+    
+    const showConfirm = (id) => {
+        confirm({
+          title: 'Do you Want to delete this zoo?',
+          icon: <ExclamationCircleFilled />,
+          onOk() {
+            deleteZoo(id)
+            getAllZoos().then((zoos) => {
+                setZoos(zoos);
+            })
+          },
+          onCancel() {
+            console.log('Cancel');
+          },
+        });
+      };
+
 
     useEffect(() => {
         getAllZoos().then((zoos) => {
             setZoos(zoos);
         });
     }, []);
-
-
 
 
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -61,13 +75,17 @@ export default function ZooList({ userProfile }) {
                 onClick={() => {
                     navigate(`./Update/${z.id}`);
                   }}/>
-                <DeleteOutlined style={{ fontSize: '16px' }} />
+                <DeleteOutlined 
+                style={{ fontSize: '16px' }} 
+                onClick={() => {showConfirm(z.id)}} 
+                />
               </Space>
             ) : null}
           </Space>
         ),
       }));
 
+      
 
 const handleReset = (clearFilters) => {
     if (clearFilters) {
