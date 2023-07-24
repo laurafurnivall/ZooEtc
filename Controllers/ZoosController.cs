@@ -39,5 +39,24 @@ namespace ZooEtc.Controllers
             _zooRepository.Add(zoo);
             return CreatedAtAction("Get", new {id =  zoo.Id}, zoo);
         }
+
+        [HttpPut("update/{id}")]
+        public IActionResult Put(int id, Zoos zoo)
+        {
+            if (id != zoo.Id)
+            {
+                return BadRequest();
+            }
+
+            _zooRepository.Update(zoo);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _zooRepository.Delete(id);
+            return NoContent();
+        }
     }
 }

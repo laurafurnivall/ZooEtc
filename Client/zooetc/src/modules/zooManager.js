@@ -62,3 +62,26 @@ export const addZoo = (zoo) => {
         });
     });
 };
+
+export const editZoo = (id, zoo) => {
+    return getToken().then((token) => {
+        return fetch(`${zooUrl}/update/${id}`, {
+            method: "PUT",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(zoo)
+        }).then((res) => {
+            if (res.ok) {
+                return res.status === 204;
+            } else if (res.status === 401) {
+                throw new Error("Unauthorized");
+            } else {
+                throw new Error(
+                    "An unknown error occured while trying to edit the zoo."
+                );
+            }
+        })
+    })
+}
