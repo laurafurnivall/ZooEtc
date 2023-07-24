@@ -22,6 +22,17 @@ namespace ZooEtc.Controllers
             return Ok(_zooRepository.GetAll());
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var zoo = _zooRepository.GetById(id);
+            if (zoo == null)
+            {
+                return NotFound();
+            }
+            return Ok(zoo);
+        }
+
         [HttpPost("add")]
         public IActionResult Post(Zoos zoo)
         {
