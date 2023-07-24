@@ -56,7 +56,11 @@ export default function ZooList({ userProfile }) {
             />
             {userProfile && userProfile.isAdmin === true ? (
               <Space>
-                <EditOutlined style={{ fontSize: '16px' }} />
+                <EditOutlined 
+                style={{ fontSize: '16px' }} 
+                onClick={() => {
+                    navigate(`./Update/${z.id}`);
+                  }}/>
                 <DeleteOutlined style={{ fontSize: '16px' }} />
               </Space>
             ) : null}

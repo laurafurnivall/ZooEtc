@@ -131,8 +131,52 @@ namespace ZooEtc.Repositories
             }
         }
 
-        public void Update(Zoos zoo) { throw new NotImplementedException(); }
+        public void Update(Zoos zoo) 
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"UPDATE Zoos
+                                        SET ZooName = @ZooName,
+                                            Address = @Address,
+                                            City = @City,
+                                            State = @State,
+                                            PhoneNumber = @PhoneNumber,
+                                            ZooImgUrl = @ZooImgUrl,
+                                            ZooUrl = @ZooUrl,
+                                            Description = @Description
+                                        WHERE Id = @Id";
 
-        public void Delete(int id) { throw new NotImplementedException(); }
+                    DbUtils.AddParameter(cmd, "@Id", zoo.Id);
+                    DbUtils.AddParameter(cmd, "@ZooName", zoo.ZooName);
+                    DbUtils.AddParameter(cmd, "@Address", zoo.Address);
+                    DbUtils.AddParameter(cmd, "@City", zoo.City);
+                    DbUtils.AddParameter(cmd, "@State", zoo.State);
+                    DbUtils.AddParameter(cmd, "@PhoneNumber", zoo.PhoneNumber);
+                    DbUtils.AddParameter(cmd, "@ZooImgUrl", zoo.ZooImgUrl);
+                    DbUtils.AddParameter(cmd, "@ZooUrl", zoo.ZooUrl);
+                    DbUtils.AddParameter(cmd, "@Description", zoo.Description);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Delete(int id) 
+        { 
+            using (var connection = Connection)
+            {
+                connection.Open();
+                using (var cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Zoos WHERE Id = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
+                    cmd.ExecuteNonQuery ();
+                }
+            } 
+        }
     }
 }
