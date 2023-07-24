@@ -20,3 +20,26 @@ export const getAllZoos = () => {
         });
     });
 };
+
+export const addZoo = (zoo) => {
+    return getToken().then((token) => {
+        return fetch(`${zooUrl}/add`, {
+            method: "POST",
+            headers: {
+                Authorization:  `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(zoo),
+        }).then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else if (res.status === 401) {
+                throw new Error("Unauthorized");
+            } else {
+                throw new Error(
+                    "I'm sorry. Failed to add new zoo to database."
+                );
+            }
+        });
+    });
+};

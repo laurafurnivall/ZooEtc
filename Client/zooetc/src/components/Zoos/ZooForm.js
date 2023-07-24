@@ -10,9 +10,10 @@ import {
     Row,
     Select,
 } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
 import React, { useState } from 'react';
 
-export default function ZooForm({ Zoo }) {
+export default function ZooForm({ zooName, address, city, state, phoneNumber, zooImgUrl, zooUrl, description, handleInputChange, handleSave }) {
     const onFinish = (values) => {
         console.log('Success:', values);
     };
@@ -21,7 +22,7 @@ export default function ZooForm({ Zoo }) {
     };
     return <>
         <Form
-            name='zooform'
+            name='ZooForm'
             labelCol={{
                 span: 8,
             }}
@@ -40,7 +41,7 @@ export default function ZooForm({ Zoo }) {
         >
             <Form.Item
                 label="Zoo Name"
-                name="zooName"
+                name="ZooName"
                 rules={
                     [
                         {
@@ -50,11 +51,17 @@ export default function ZooForm({ Zoo }) {
                     ]
                 }
             >
-                <Input placeholder='Enter zoo name here...'/>
+                <Input
+                    placeholder='Enter zoo name here...'
+                    id="ZooName"
+                    value={zooName}
+                    onChange={handleInputChange}
+                    name="ZooName"
+                />
             </Form.Item>
             <Form.Item
                 label="Address"
-                name="address"
+                name="Address"
                 rules={
                     [
                         {
@@ -64,11 +71,15 @@ export default function ZooForm({ Zoo }) {
                     ]
                 }
             >
-                <Input placeholder='1234 Zoo St'/>
+                <Input placeholder='1234 Zoo St'
+                    id="Address"
+                    value={address}
+                    onChange={handleInputChange}
+                    name="Address" />
             </Form.Item>
             <Form.Item
                 label="City"
-                name="city"
+                name="City"
                 rules={
                     [
                         {
@@ -78,11 +89,15 @@ export default function ZooForm({ Zoo }) {
                     ]
                 }
             >
-                <Input placeholder='Enter city here...' />
+                <Input placeholder='Enter city here...'
+                    id="City"
+                    value={city}
+                    onChange={handleInputChange}
+                    name="City" />
             </Form.Item>
             <Form.Item
                 label="State"
-                name="state"
+                name="State"
                 rules={
                     [
                         {
@@ -92,50 +107,90 @@ export default function ZooForm({ Zoo }) {
                     ]
                 }
             >
-                <Input placeholder='Enter state here...' />
+                <Input placeholder='Enter state here...'
+                    id="State"
+                    value={state}
+                    onChange={handleInputChange}
+                    name="State" />
             </Form.Item>
             <Form.Item
                 label="Phone number"
-                name="phoneNumber"
+                name="PhoneNumber"
                 rules={
                     [
                         {
                             required: true,
-                            message: 'Please a phone number!',
+                            message: 'Please enter a phone number!',
                         },
                     ]
                 }
             >
-                <Input />
+                <Input placeholder='555-555-5555'
+                    id="PhoneNumber"
+                    value={phoneNumber}
+                    onChange={handleInputChange}
+                    name="PhoneNumber" />
             </Form.Item>
             <Form.Item
                 label="Zoo Image URL"
-                name="zooUrl"
+                name="ZooImgUrl"
                 rules={
                     [
                         {
                             required: true,
-                            message: 'Please a zoo image url!',
+                            message: 'Please enter a zoo image url!',
                         },
                     ]
                 }
             >
-                <Input />
+                <Input placeholder='Image URL here...'
+                    id="ZooImgUrl"
+                    value={zooImgUrl}
+                    onChange={handleInputChange}
+                    name="ZooImgUrl" />
             </Form.Item>
             <Form.Item
                 label="Zoo Website Address"
-                name="zooUrl"
+                name="ZooUrl"
                 rules={
                     [
                         {
                             required: true,
-                            message: 'Please a zoo website address!',
+                            message: 'Please enter a zoo website address!',
                         },
                     ]
                 }
             >
-                <Input />
+                <Input placeholder='Zoo website here...'
+                    id="ZooUrl"
+                    value={zooUrl}
+                    onChange={handleInputChange}
+                    name="ZooUrl" />
             </Form.Item>
+            <Form.Item
+                label="Description"
+                name="Description"
+                rules={
+                    [
+                        {
+                            required: true,
+                            message: 'Please enter a description!',
+                        },
+                    ]
+                }
+            >
+                <TextArea
+                    rows={4}
+                    placeholder='Brief descirption here'
+                    id="Description"
+                    value={description}
+                    onChange={handleInputChange}
+                    name="Description" />
+            </Form.Item>
+            <Form.Item>
+            <Button onClick={handleSave}>Save</Button>
+            </Form.Item>
+            
         </Form>
     </>
 }

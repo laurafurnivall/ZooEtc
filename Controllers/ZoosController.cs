@@ -22,7 +22,7 @@ namespace ZooEtc.Controllers
             return Ok(_zooRepository.GetAll());
         }
 
-        [HttpPost]
+        [HttpPost("add")]
         public IActionResult Post(Zoos zoo)
         {
             _zooRepository.Add(zoo);
