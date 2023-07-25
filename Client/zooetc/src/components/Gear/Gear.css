@@ -2,7 +2,11 @@
     width: 20rem;
     margin: 10px;
     padding: 5px;
-    height: 350px;
+    height: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
 
 .gearItems {
@@ -13,4 +17,12 @@
 
 .gearCardLink {
     font-size: 20px;
+}
+
+.gearImage {
+  margin: 10px;
+  max-width:15rem;
+  max-height:10rem;
+  width: auto;
+  height: auto;
 }

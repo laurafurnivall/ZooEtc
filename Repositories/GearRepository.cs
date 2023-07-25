@@ -49,11 +49,11 @@ namespace ZooEtc.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"SELECT g.Id, g.Title, g.Description, g.PurchaseUrl, g.ImageUrl,
+                    cmd.CommandText = @"SELECT g.Id, g.[Title], g.[Description], g.PurchaseUrl, g.ImageUrl,
                                         gr.Id AS GearReviewId, gr.UserId, gr.GearId, gr.ReviewDate, gr.Longevity, gr.Versatility, gr.Comfort, gr.Comments, gr.isApproved
                                         FROM Gear g
                                         LEFT JOIN GearReviews gr ON g.Id = gr.GearId
-                                        Where g.Id - @Id";
+                                        Where g.Id = @Id";
                     DbUtils.AddParameter(cmd, "@Id", id);
 
                     using (var reader = cmd.ExecuteReader())
@@ -125,7 +125,7 @@ namespace ZooEtc.Repositories
                     cmd.CommandText = @"UPDATE Gear
                                         SET Title = @Title,
                                             Description = @Description,
-                                            PurchaseUrl = @PurchaseUrl
+                                            PurchaseUrl = @PurchaseUrl,
                                             ImageUrl = @ImageUrl
                                         WHERE Id = @Id";
                     DbUtils.AddParameter(cmd, "@Id", item.Id);
