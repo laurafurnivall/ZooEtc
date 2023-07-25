@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { Tooltip } from 'antd';
 import Meta from "antd/es/card/Meta";
 
-export default function GearCard({ userProfile, id, title, description, purchaseUrl, imgUrl, showConfirm }) {
+export default function GearCard({ userProfile, id, title, description, purchaseUrl, imageUrl, showConfirm }) {
     const navigate = useNavigate();
 
     return <>
         <Card className="gearCard"
-            cover={<img alt="Gear Image" src={imgUrl} />}
+            cover={<img className="gearImage"alt="Gear Image" src={imageUrl} />}
             actions={[
                 <Space>
                     <Tooltip title="Shop for this item?">
