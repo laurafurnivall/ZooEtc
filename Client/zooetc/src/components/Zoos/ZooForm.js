@@ -31,6 +31,8 @@ export default function ZooForm({ zooName, address, city,
             style={{
                 maxWidth: 600,
             }}
+            initialValues={{
+            }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
@@ -48,7 +50,6 @@ export default function ZooForm({ zooName, address, city,
             }
         >
             <Input
-                placeholder={'Enter zoo name here...'}
                 id="zooName"
                 value={zooName}
                 onChange={handleInputChange}
@@ -67,7 +68,7 @@ export default function ZooForm({ zooName, address, city,
                 ]
             }
         >
-            <Input placeholder='1234 Zoo St'
+            <Input 
                 id="address"
                 value={address}
                 onChange={handleInputChange}
@@ -85,7 +86,7 @@ export default function ZooForm({ zooName, address, city,
                 ]
             }
         >
-            <Input placeholder='Enter city here...'
+            <Input 
                 id="city"
                 value={city}
                 onChange={handleInputChange}
@@ -121,7 +122,7 @@ export default function ZooForm({ zooName, address, city,
                 ]
             }
         >
-            <Input placeholder='555-555-5555'
+            <Input 
                 id="phoneNumber"
                 value={phoneNumber}
                 onChange={handleInputChange}
@@ -139,7 +140,7 @@ export default function ZooForm({ zooName, address, city,
                 ]
             }
         >
-            <Input placeholder='Image URL here...'
+            <Input 
                 id="zooImgUrl"
                 value={zooImgUrl}
                 onChange={handleInputChange}
@@ -157,7 +158,7 @@ export default function ZooForm({ zooName, address, city,
                 ]
             }
         >
-            <Input placeholder='Zoo website here...'
+            <Input 
                 id="zooUrl"
                 value={zooUrl}
                 onChange={handleInputChange}
@@ -177,7 +178,6 @@ export default function ZooForm({ zooName, address, city,
         >
             <TextArea
                 rows={4}
-                placeholder='Brief descirption here'
                 id="description"
                 value={description}
                 onChange={handleInputChange}

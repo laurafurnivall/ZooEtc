@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Main.css';
 import { NavLink as RRNavLink } from "react-router-dom";
 import {
   Collapse,
@@ -7,7 +8,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  NavbarText
 } from 'reactstrap';
 import { logout } from '../modules/authmanager';
 
@@ -58,5 +60,6 @@ export default function Header({ isLoggedIn, userProfile }) {
         </Collapse>
       </Navbar>
     </div>
+    
   );
 }
