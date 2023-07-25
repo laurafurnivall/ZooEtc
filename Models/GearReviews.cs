@@ -11,7 +11,7 @@ namespace ZooEtc.Models
 
         public int UserId { get; set; }
         
-        public int UniformId { get; set; }
+        public int GearId { get; set; }
 
         public string ReviewDate { get; set; }
 

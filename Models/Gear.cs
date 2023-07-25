@@ -1,4 +1,7 @@
-﻿namespace ZooEtc.Models
+﻿using System.Collections.Generic;
+using ZooEtc.Models;
+
+namespace ZooEtc.Models
 {
     public class Gear
     {
@@ -7,5 +10,6 @@
         public string Description { get; set; }
         public string PurchaseUrl { get; set; }
         public string ImageUrl { get; set; }
+        public List<GearReviews> GearReviews { get; set;}
     }
 }
