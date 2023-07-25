@@ -39,7 +39,7 @@ export default function ZooEdit() {
         editZoo(id, zoo)
             .then(() => navigate("/Zoos"))
     }
-    
+    console.log(zoo)
     return <>
         <h4>Edit Zoo Information:</h4>
         <ZooForm

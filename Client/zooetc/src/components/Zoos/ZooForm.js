@@ -51,10 +51,11 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input
                 id="zooName"
+                defaultValue={zooName}
                 value={zooName}
                 onChange={handleInputChange}
                 name="zooName"
-            />
+            />{zooName}
         </Form.Item>
         <Form.Item
             label="Address"
@@ -70,6 +71,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input 
                 id="address"
+                defaultValue={address}
                 value={address}
                 onChange={handleInputChange}
                 name="address" />
@@ -88,6 +90,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input 
                 id="city"
+                defaultValue={city}
                 value={city}
                 onChange={handleInputChange}
                 name="city" />
@@ -106,6 +109,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input
                 id="state"
+                defaultValue={state}
                 value={state}
                 onChange={handleInputChange}
                 name="state" />
@@ -124,6 +128,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input 
                 id="phoneNumber"
+                defaultValue={phoneNumber}
                 value={phoneNumber}
                 onChange={handleInputChange}
                 name="phoneNumber" />
@@ -142,6 +147,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input 
                 id="zooImgUrl"
+                defaultValue={zooImgUrl}
                 value={zooImgUrl}
                 onChange={handleInputChange}
                 name="zooImgUrl" />
@@ -160,6 +166,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <Input 
                 id="zooUrl"
+                defaultValue={zooUrl}
                 value={zooUrl}
                 onChange={handleInputChange}
                 name="zooUrl" />
@@ -178,6 +185,7 @@ export default function ZooForm({ zooName, address, city,
         >
             <TextArea
                 rows={4}
+                defaultValue={description}
                 id="description"
                 value={description}
                 onChange={handleInputChange}
