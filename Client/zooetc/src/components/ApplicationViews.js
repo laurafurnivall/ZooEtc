@@ -8,6 +8,9 @@ import ZooAdd from "./Zoos/ZooAdd";
 import ZooDetails from "./Zoos/ZooDetails";
 import ZooEdit from "./Zoos/ZooEdit";
 import GearContainer from "./Gear/GearContainer";
+import GearAdd from "./Gear/GearAdd";
+import GearDetails from "./Gear/GearDetails";
+import GearEdit from "./Gear/GearEdit";
 
 export default function ApplicationViews({ isLoggedIn, userProfile }) {
     return (
@@ -28,6 +31,9 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                     </Route>
                     <Route path="Gear">
                         <Route index element={isLoggedIn? <GearContainer userProfile={userProfile}/> : <Navigate to="/login"/>}/>
+                        <Route path="Add"element={<GearAdd/>}/>
+                        <Route path=":id" element={<GearDetails/>} />
+                        <Route path="Update/:id" element={<GearEdit />} />
                     </Route>
                     <Route path="*" element={<p>Whoops, nothing here...</p>} />
                     </Route>
