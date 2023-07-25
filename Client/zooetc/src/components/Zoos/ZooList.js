@@ -7,6 +7,7 @@ import { InfoCircleOutlined, EditOutlined, DeleteOutlined, ExclamationCircleFill
 
 export default function ZooList({ userProfile }) {
     const [zoos, setZoos] = useState([]);
+    const [filteredZoos, setFilteredZoos] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
@@ -36,6 +37,13 @@ export default function ZooList({ userProfile }) {
         });
     }, []);
 
+    useEffect(
+        () => {
+            setFilteredZoos(zoos)
+        },
+        [zoos]
+    )
+
 
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm();
@@ -44,7 +52,7 @@ export default function ZooList({ userProfile }) {
     };
 
 
-    const data = zoos.map((z) => ({
+    const data = filteredZoos.map((z) => ({
         key: z.id,
         ZooName: z.zooName,
         City: z.city,
@@ -92,6 +100,9 @@ const handleReset = (clearFilters) => {
         clearFilters();
     }
     setSearchText('');
+    getAllZoos().then((zoos) => {
+        setZoos(zoos);
+    });
 };
 
 const getColumnSearchProps = (dataIndex) => ({

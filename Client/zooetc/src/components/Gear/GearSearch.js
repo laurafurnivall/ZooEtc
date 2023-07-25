@@ -1,9 +1,9 @@
-export const GearSearch = ({ setterFunctionTwo }) => {
+export const GearSearch = ({ setterFunction }) => {
     return (
         <div>
             <input className="search" onChange={
                 (changeEvent) => {
-                    setterFunctionTwo(changeEvent.target.value)
+                    setterFunction(changeEvent.target.value)
                 }
             }
             type="text" placeholder="Search for a specific item..."/>
