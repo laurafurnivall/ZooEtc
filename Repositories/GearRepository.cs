@@ -117,7 +117,7 @@ namespace ZooEtc.Repositories
                                     Types = new List<Types>()
                                 };
                             }
-                            if (DbUtils.IsNotDbNull(reader, "GearReviewId"))
+                            if (DbUtils.IsNotDbNull(reader, "GearReviewId") && item.GearReviews.All(r => r.Id != DbUtils.GetInt(reader, "GearReviewId")))
                             {
                                 item.GearReviews.Add(new GearReviews()
                                 {

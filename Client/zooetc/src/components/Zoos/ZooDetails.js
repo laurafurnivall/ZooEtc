@@ -32,7 +32,7 @@ export default function ZooDetails() {
     }, []);
 
     if (!zoo) {
-        return
+        return null
     }
 
     return (

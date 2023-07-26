@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
 import { getAllTypes } from "../../modules/typeManager";
 import { CardGroup } from "reactstrap";
 import TypeCard from "./TypeCard";

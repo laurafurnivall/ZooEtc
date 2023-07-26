@@ -34,3 +34,16 @@
 .cardTitle {
     text-align: center;
 }
+
+.contentGear {
+    margin: 10px;
+}
+
+.gearRatingR {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.gearReviewCard {
+    margin: 5px;
+}

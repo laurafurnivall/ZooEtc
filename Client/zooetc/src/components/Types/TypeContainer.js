@@ -5,7 +5,6 @@ import TypeList from './TypeList';
 
 export default function TypeContainer ({userProfile}) {
     const [searchTerms, setSearchTerms] = useState("")
-    const navigate = useNavigate();
 
     return <>
         <TypeSearch setterFunction={setSearchTerms}/>
