@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import { getZoo } from "../../modules/zooManager";
 import { Layout, Space } from 'antd';
+import "./Zoos.css"
 const { Footer, Sider, Content } = Layout;
 
 const contentStyle = {
@@ -46,7 +47,7 @@ export default function ZooDetails() {
             <Layout>
                 <Sider style={siderStyle} width={300}>
                     {
-                        zoo.zooImgUrl ? (<img src={zoo.zooImgUrl} alt="Zoo Logo" />) : ""
+                        zoo.zooImgUrl ? (<img className='zooImgOnDetails'src={zoo.zooImgUrl} alt="Zoo Logo" />) : ""
                     }
                 </Sider>
                 <Content style={contentStyle}>

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Data.SqlClient;
+using System.Linq;
 
 namespace ZooEtc.Repositories
 {
@@ -19,27 +20,44 @@ namespace ZooEtc.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"SELECT Id, ZooName, [Address], [City], [State], [PhoneNumber], ZooImgUrl, ZooUrl, [Description]
-                                        FROM Zoos ";
+                    cmd.CommandText = @"SELECT z.Id AS ZooId, z.ZooName, z.[Address], z.[City], z.[State], z.[PhoneNumber], z.ZooImgUrl, z.ZooUrl, z.[Description],
+                                        zr.Id AS ZooReviewId, zr.UserId, zr.ZooId AS ZooReviewZooId, zr.ReviewDate, zr.AnimalCare, zr.Culture, zr.ConservationInitiative,
+                                        zr.Salary, zr.Benefits, zr.Leadership, zr.Inclusivity, zr.Comments, zr.isApproved
+                                        FROM Zoos z
+                                        LEFT JOIN ZooReviews zr ON z.Id = zr.ZooId";
                     using (var reader = cmd.ExecuteReader())
                     {
                         var zoos = new List<Zoos>();
-                        while(reader.Read())
+                        while (reader.Read())
                         {
-                            zoos.Add(new Zoos()
+                            var zooId = DbUtils.GetInt(reader, "ZooId");
+                            var existingZoo = zoos.FirstOrDefault(z => z.Id == zooId);
+                            if (existingZoo != null)
                             {
-                                Id = DbUtils.GetInt(reader, "Id"),
-                                ZooName = DbUtils.GetString(reader,"ZooName"),
-                                Address = DbUtils.GetString(reader,"Address"),
-                                City = DbUtils.GetString(reader,"City"),
-                                State = DbUtils.GetString(reader,"State"),
-                                PhoneNumber = DbUtils.GetString(reader,"PhoneNumber"),
-                                ZooImgUrl = DbUtils.GetString(reader,"ZooImgUrl"),
-                                ZooUrl = DbUtils.GetString(reader,"ZooUrl"),
-                                Description = DbUtils.GetString(reader,"Description")
-                            });
-                        }
+                                existingZoo = new Zoos()
+                                {
+                                    Id = DbUtils.GetInt(reader, "ZooId"),
+                                    ZooName = DbUtils.GetString(reader, "ZooName"),
+                                    Address = DbUtils.GetString(reader, "Address"),
+                                    City = DbUtils.GetString(reader, "City"),
+                                    State = DbUtils.GetString(reader, "State"),
+                                    PhoneNumber = DbUtils.GetString(reader, "PhoneNumber"),
+                                    ZooImgUrl = DbUtils.GetString(reader, "ZooImgUrl"),
+                                    ZooUrl = DbUtils.GetString(reader, "ZooUrl"),
+                                    Description = DbUtils.GetString(reader, "Description"),
+                                    ZooReviews = new List<ZooReviews>()
+                                };
+                                zoos.Add(existingZoo);
+                            }
+                            if (DbUtils.IsNotDbNull(reader, "ZooReviewId"))
+                            {
+                                existingZoo.ZooReviews.Add(new ZooReviews()
+                                {
+                                    Id = DbUtils.GetInt(reader, "ZooReviewId"),
 
+                                });
+                            }
+                        }
                         return zoos;
                     }
                 }
