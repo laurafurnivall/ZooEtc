@@ -74,6 +74,7 @@ namespace ZooEtc
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IZooRepository, ZooRepository>();
             services.AddTransient<IGearRepository, GearRepository>();
+            services.AddTransient<ITypeRepository, TypeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

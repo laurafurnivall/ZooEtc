@@ -11,5 +11,7 @@ namespace ZooEtc.Models
         public string PurchaseUrl { get; set; }
         public string ImageUrl { get; set; }
         public List<GearReviews> GearReviews { get; set;}
+
+        public List<Types> Types { get; set;}
     }
 }
