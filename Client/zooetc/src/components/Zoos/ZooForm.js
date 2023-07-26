@@ -55,7 +55,7 @@ export default function ZooForm({ zooName, address, city,
                 value={zooName}
                 onChange={handleInputChange}
                 name="zooName"
-            />{zooName}
+            />
         </Form.Item>
         <Form.Item
             label="Address"
