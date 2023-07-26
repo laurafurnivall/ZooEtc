@@ -25,22 +25,22 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="Zoos">
-                        <Route index element={isLoggedIn? <ZooList userProfile={userProfile}/> : <Navigate to="/login" />}/>
-                        <Route path="Add"element={<ZooAdd/>}/>
-                        <Route path=":id" element={<ZooDetails/>} />
+                        <Route index element={isLoggedIn ? <ZooList userProfile={userProfile} /> : <Navigate to="/login" />} />
+                        <Route path="Add" element={<ZooAdd />} />
+                        <Route path=":id" element={<ZooDetails />} />
                         <Route path="Update/:id" element={<ZooEdit />} />
                     </Route>
                     <Route path="Gear">
-                        <Route index element={isLoggedIn? <GearContainer userProfile={userProfile}/> : <Navigate to="/login"/>}/>
-                        <Route path="Add"element={<GearAdd/>}/>
-                        <Route path=":id" element={<GearDetails/>} />
+                        <Route index element={isLoggedIn ? <GearContainer userProfile={userProfile} /> : <Navigate to="/login" />} />
+                        <Route path="Add" element={<GearAdd />} />
+                        <Route path=":id" element={<GearDetails />} />
                         <Route path="Update/:id" element={<GearEdit />} />
                     </Route>
-                    <Route path="Type">
-                        <Route index element={isLoggedIn? <TypeContainer userProfile={userProfile}/> : <Navigate to="/login"/>}/>
+                    <Route path="Types">
+                        <Route index element={isLoggedIn ?  <TypeContainer userProfile={userProfile} /> : <Navigate to="/" /> }/>
                     </Route>
                     <Route path="*" element={<p>Whoops, nothing here...</p>} />
-                    </Route>
+                </Route>
             </Routes>
         </main>
     );

@@ -40,6 +40,13 @@ export default function Header({ isLoggedIn, userProfile }) {
             }
           </Nav>
           <Nav navbar>
+            {isLoggedIn && userProfile && userProfile.isAdmin === true ? (
+              <NavItem>
+                <NavLink tag={RRNavLink} to="/Types">Types</NavLink>
+              </NavItem>
+            ) : null}
+          </Nav>
+          <Nav navbar>
             {isLoggedIn &&
               <>
                 <NavItem>
@@ -63,6 +70,6 @@ export default function Header({ isLoggedIn, userProfile }) {
         </Collapse>
       </Navbar>
     </div>
-    
+
   );
 }

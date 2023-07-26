@@ -1,0 +1,25 @@
+.typesCardGroup{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.typeCard {
+    width: 10rem;
+    height: 8rem;
+    margin: 2px 2px;
+    text-align: center;
+    
+}
+
+.search {
+    margin: 10px 10px;
+    width: 350px;
+    height: 30px
+}
+
+.addTypeIcon {
+    font-size: 30px;
+    margin-left: 20px;
+    color: #585858;
+}
