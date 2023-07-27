@@ -1,6 +1,5 @@
-import { Layout, Rate, Card, Space } from 'antd';
-import { CardBody, CardFooter, CardTitle } from "reactstrap";
-import Meta from "antd/es/card/Meta";
+import { Rate, Card, Space } from 'antd';
+import { CardBody, CardTitle } from "reactstrap";
 import "./Gear.css"
 
 export default function GearReviewCard ({id, reviewDate, longevity, versatility, comfort, comments, averageR}) {

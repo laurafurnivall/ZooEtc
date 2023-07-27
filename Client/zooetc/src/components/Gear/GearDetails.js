@@ -7,7 +7,7 @@ import Meta from "antd/es/card/Meta";
 import GearReviewCard from "./GearReviewCard";
 import "./Gear.css"
 import { ShoppingOutlined, StarOutlined } from '@ant-design/icons';
-const { Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 export default function GearDetails() {
     const { id } = useParams();

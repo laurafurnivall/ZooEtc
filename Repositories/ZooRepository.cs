@@ -32,7 +32,7 @@ namespace ZooEtc.Repositories
                         {
                             var zooId = DbUtils.GetInt(reader, "ZooId");
                             var existingZoo = zoos.FirstOrDefault(z => z.Id == zooId);
-                            if (existingZoo != null)
+                            if (existingZoo == null)
                             {
                                 existingZoo = new Zoos()
                                 {
@@ -54,7 +54,18 @@ namespace ZooEtc.Repositories
                                 existingZoo.ZooReviews.Add(new ZooReviews()
                                 {
                                     Id = DbUtils.GetInt(reader, "ZooReviewId"),
-
+                                    UserId = DbUtils.GetInt(reader,"UserId"),
+                                    ZooId = DbUtils.GetInt(reader,"ZooReviewZooId"),
+                                    ReviewDate = DbUtils.GetString(reader, "ReviewDate"),
+                                    AnimalCare = DbUtils.GetInt(reader, "AnimalCare"),
+                                    Culture = DbUtils.GetInt(reader, "Culture"),
+                                    ConservationInitiative = DbUtils.GetInt(reader,"ConservationInitiative"),
+                                    Salary = DbUtils.GetInt(reader,"Salary"),
+                                    Benefits = DbUtils.GetInt(reader,"Benefits"),
+                                    Leadership = DbUtils.GetInt(reader,"Leadership"),
+                                    Inclusivity = DbUtils.GetInt(reader,"Inclusivity"),
+                                    Comments = DbUtils.GetString(reader, "Comments"),
+                                    isApproved = reader.GetBoolean(reader.GetOrdinal("isApproved"))
                                 });
                             }
                         }

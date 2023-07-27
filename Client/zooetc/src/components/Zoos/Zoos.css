@@ -4,3 +4,47 @@
     width: auto;
     height: auto;
 }
+
+.zooReviewCard {
+    margin: 10px;
+}
+
+.zooRatingR {
+    margin: 10px;
+    font-size: 14px;
+}
+
+
+.zooSpace {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.zooImgOnDetails {
+  margin: 10px;
+  max-width:15rem;
+  max-height:10rem;
+  width: auto;
+  height: auto;
+}
+
+.zooDetailsContent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.zooInfo {
+    margin: 10px;
+
+}
+
+.zooReviewAndAdd {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.zooCardLink {
+    font-size: 25px;
+    margin: 5px 10px
+}

@@ -9,7 +9,7 @@ export default function GearAdd() {
         title: "",
         description: "",
         purchaseUrl: "",
-        imgageUrl: ""
+        imageUrl: ""
     })
 
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function GearAdd() {
             title={newGear.title}
             description={newGear.description}
             purchaseUrl={newGear.purchaseUrl}
-            imgageUrl={newGear.imgageUrl}
+            imageUrl={newGear.imageUrl}
             handleInputChange={handleInputChange}
             handleSave={handleSave}
         />

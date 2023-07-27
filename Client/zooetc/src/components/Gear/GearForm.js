@@ -7,12 +7,6 @@ import TextArea from 'antd/es/input/TextArea';
 import { useNavigate } from "react-router-dom";
 
 export default function GearForm({ title, description, purchaseUrl, imageUrl, handleInputChange, handleSave }) {
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
 
     const navigate = useNavigate();
 
@@ -29,8 +23,6 @@ export default function GearForm({ title, description, purchaseUrl, imageUrl, ha
         }}
         initialValues={{
         }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
     >
         <Form.Item

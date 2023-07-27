@@ -1,32 +1,16 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { getZoo } from "../../modules/zooManager";
-import { Layout, Space } from 'antd';
+import { Layout, Rate, Space, Tooltip } from 'antd';
 import "./Zoos.css"
-const { Footer, Sider, Content } = Layout;
-
-const contentStyle = {
-    minHeight: 120,
-    color: '#000',
-    margin: '10px 20px',
-    padding: "10px"
-};
-const siderStyle = {
-    color: '#fff',
-    width: 400,
-    padding: "10px",
-    textAlign: "center",
-    backgroundColor: '#fff',
-    margin: '10px'
-};
-const footerStyle = {
-    color: '#fff',
-    backgroundColor: '#7dbcea',
-};
+import ZooReviewCard from "./ZooReviewCard";
+import { StarOutlined } from '@ant-design/icons';
+const { Footer, Content } = Layout;
 
 export default function ZooDetails() {
     const { id } = useParams();
     const [zoo, setZoo] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         getZoo(id).then(setZoo);
@@ -35,6 +19,9 @@ export default function ZooDetails() {
     if (!zoo) {
         return null
     }
+
+    const averageRate = zoo.zooReviews.map((zr) => zr.averageRating)
+    const average = averageRate.reduce((total, rating) => total + rating, 0) / averageRate.length
 
     return (
         <Space
@@ -45,25 +32,52 @@ export default function ZooDetails() {
             size={[0, 48]}
         >
             <Layout>
-                <Sider style={siderStyle} width={300}>
-                    {
-                        zoo.zooImgUrl ? (<img className='zooImgOnDetails'src={zoo.zooImgUrl} alt="Zoo Logo" />) : ""
-                    }
-                </Sider>
-                <Content style={contentStyle}>
-                    <h3>{zoo.zooName}</h3>
-                    <p>
-                        {zoo.address}<br></br>
-                        {zoo.phoneNumber}
-                    </p>
 
-                    <p>{zoo.description}</p>
+                <Content className="zooDetailsContent">
+                    <div>
+                        {
+                            zoo.zooImgUrl ? (<img className='zooImgOnDetails' src={zoo.zooImgUrl} alt="Zoo Logo" />) : ""
+                        }
+                    </div>
+                    <div className="zooInfo">
+                        <h3>{zoo.zooName}</h3>
+                        <div>Average Rating: <Rate className="zooRating" allowhalf disabled defaultValue={average} /></div>
+                        <p>
+                            {zoo.address}<br></br>
+                            {zoo.phoneNumber}
+                        </p>
+                        <p>{zoo.description}</p>
+                    </div>
                 </Content>
             </Layout>
             <Layout>
-                <Footer style={footerStyle}>
-                   <h4>Reviews</h4>
-                    
+                <Footer className="zooDetailsReviews">
+                    <div className="zooReviewAndAdd">
+                        <Tooltip title="Leave a review?">
+                            <StarOutlined
+                                className="zooCardLink"
+                                onClick={() => {
+                                    navigate(`/Zoos`);
+                                }} />
+                        </Tooltip><h4>Reviews</h4>
+                    </div>
+                    {
+                        zoo.zooReviews.map((zr) =>
+                            <ZooReviewCard
+                                key={zr.id}
+                                id={zr.id}
+                                reviewDate={zr.reviewDate}
+                                animalCare={zr.animalCare}
+                                culture={zr.culture}
+                                conservationInitiative={zr.conservationInitiative}
+                                salary={zr.salary}
+                                benefits={zr.benefits}
+                                leadership={zr.leadership}
+                                inclusivity={zr.inclusivity}
+                                comments={zr.comments}
+                            />
+                        )
+                    }
                 </Footer>
             </Layout>
         </Space>
