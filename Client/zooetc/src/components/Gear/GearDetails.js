@@ -46,7 +46,7 @@ export default function GearDetails() {
                                 <StarOutlined
                                     className="gearCardLink"
                                     onClick={() => {
-                                        navigate(`/Gear`);
+                                        navigate(`/GearReviews/Add/${item.id}`);
                                     }} />
                             </Tooltip>
                         </Space>

@@ -12,6 +12,7 @@ import GearAdd from "./Gear/GearAdd";
 import GearDetails from "./Gear/GearDetails";
 import GearEdit from "./Gear/GearEdit";
 import TypeContainer from "./Types/TypeContainer";
+import AddGearReview from "./GearReviews/AddGearReviews";
 
 export default function ApplicationViews({ isLoggedIn, userProfile }) {
     return (
@@ -33,8 +34,11 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                     <Route path="Gear">
                         <Route index element={isLoggedIn ? <GearContainer userProfile={userProfile} /> : <Navigate to="/login" />} />
                         <Route path="Add" element={<GearAdd />} />
-                        <Route path=":id" element={<GearDetails />} />
+                        <Route path=":id" element={<GearDetails userProfile={userProfile}/>} />
                         <Route path="Update/:id" element={<GearEdit />} />
+                    </Route>
+                    <Route path="GearReviews">
+                        <Route path="Add/:id" element={<AddGearReview userProfile={userProfile}/>} />
                     </Route>
                     <Route path="Types">
                         <Route index element={isLoggedIn ?  <TypeContainer userProfile={userProfile} /> : <Navigate to="/" /> }/>

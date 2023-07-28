@@ -92,6 +92,8 @@ const handleReset = (clearFilters) => {
         clearFilters();
     }
     setSearchText('');
+  
+    
 };
 
 const getColumnSearchProps = (dataIndex) => ({

@@ -19,6 +19,7 @@ export default function GearEdit() {
             updateGear(fetchedGear);
         });
     }, [id]);
+    
     const navigate = useNavigate();
 
     const handleInputChange = (event) => {

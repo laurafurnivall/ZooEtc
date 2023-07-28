@@ -46,7 +46,7 @@ export default function Header({ isLoggedIn, userProfile }) {
               <DropdownToggle nav caret>
                 Hello, {userProfile?.firstName}
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu>
                 <DropdownItem>My Reviews</DropdownItem>
                 <DropdownItem>My Job Listings</DropdownItem>
                 {isLoggedIn && userProfile && userProfile.isAdmin === true ? (
