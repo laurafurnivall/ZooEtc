@@ -139,7 +139,7 @@ namespace ZooEtc.Repositories
                                             Comments = @Comments,
                                             isApproved = @isApproved
                                         WHERE Id = @Id";
-
+                    DbUtils.AddParameter(cmd, "Id", gearReview.Id);
                     DbUtils.AddParameter(cmd, "@UserId", gearReview.UserId);
                     DbUtils.AddParameter(cmd, "@GearId", gearReview.GearId);
                     DbUtils.AddParameter(cmd, "@ReviewDate", gearReview.ReviewDate);

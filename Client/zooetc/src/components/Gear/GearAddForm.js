@@ -38,7 +38,6 @@ export default function GearAddForm({ title, description, purchaseUrl, imageUrl,
         >
             <Input
                 id="title"
-                defaultValue={title}
                 value={title}
                 onChange={handleInputChange}
                 name="title"
@@ -58,7 +57,6 @@ export default function GearAddForm({ title, description, purchaseUrl, imageUrl,
         >
             <Input
                 id="purchaseUrl"
-                defaultValue={purchaseUrl}
                 value={purchaseUrl}
                 onChange={handleInputChange}
                 name="purchaseUrl" />
@@ -77,7 +75,6 @@ export default function GearAddForm({ title, description, purchaseUrl, imageUrl,
         >
             <Input
                 id="imageUrl"
-                defaultValue={imageUrl}
                 value={imageUrl}
                 onChange={handleInputChange}
                 name="imageUrl" />
@@ -97,7 +94,6 @@ export default function GearAddForm({ title, description, purchaseUrl, imageUrl,
             <TextArea
                 rows={4}
                 id="description"
-                defaultValue={description}
                 value={description}
                 onChange={handleInputChange}
                 name="description" />

@@ -9,7 +9,7 @@ import "./Gear.css"
 import { ShoppingOutlined, StarOutlined } from '@ant-design/icons';
 const { Sider, Content } = Layout;
 
-export default function GearDetails() {
+export default function GearDetails({userProfile }) {
     const { id } = useParams();
     const [item, setItem] = useState();
     const navigate = useNavigate();
@@ -70,12 +70,14 @@ export default function GearDetails() {
                         <GearReviewCard
                             key={gr.id}
                             id={gr.id}
+                            userId={gr.userId}
                             reviewDate={gr.reviewDate}
                             longevity={gr.longevity}
                             versatility={gr.versatility}
                             comfort={gr.comfort}
                             comments={gr.comments}
-                            averageR={gr.averageRating} />
+                            averageR={gr.averageRating} 
+                            userProfile={userProfile}/>
                     )
                 }
             </Content>

@@ -7,7 +7,7 @@ import ZooReviewCard from "./ZooReviewCard";
 import { StarOutlined } from '@ant-design/icons';
 const { Footer, Content } = Layout;
 
-export default function ZooDetails() {
+export default function ZooDetails( {userProfile }) {
     const { id } = useParams();
     const [zoo, setZoo] = useState();
     const navigate = useNavigate();
@@ -57,7 +57,7 @@ export default function ZooDetails() {
                             <StarOutlined
                                 className="zooCardLink"
                                 onClick={() => {
-                                    navigate(`/Zoos`);
+                                    navigate(`/ZooReviews/Add/${zoo.id}`);
                                 }} />
                         </Tooltip><h4>Reviews</h4>
                     </div>
@@ -75,6 +75,8 @@ export default function ZooDetails() {
                                 leadership={zr.leadership}
                                 inclusivity={zr.inclusivity}
                                 comments={zr.comments}
+                                userProfile={userProfile}
+                                userId={zr.userId}
                             />
                         )
                     }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Main.css';
-import { NavLink as RRNavLink } from "react-router-dom";
+import { useNavigate, NavLink as RRNavLink } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -19,6 +19,7 @@ import { logout } from '../modules/authmanager';
 export default function Header({ isLoggedIn, userProfile }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -42,28 +43,34 @@ export default function Header({ isLoggedIn, userProfile }) {
                 <NavItem>
                   <NavLink tag={RRNavLink} to="/JobListings">Jobs</NavLink>
                 </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Hello, {userProfile?.firstName}
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>My Reviews</DropdownItem>
-                <DropdownItem>My Job Listings</DropdownItem>
-                {isLoggedIn && userProfile && userProfile.isAdmin === true ? (
-                <DropdownItem>Type Management</DropdownItem>) : null}
-                <DropdownItem divider />
-                {isLoggedIn &&
-              <>
-                <DropdownItem><a aria-current="page" className="nav-link"
-                    style={{ cursor: "pointer" }} onClick={logout}>Logout</a></DropdownItem>
-                </>
-            }
-              </DropdownMenu>
-            </UncontrolledDropdown>
               </>
             }
+            <Nav navbar>
+              {isLoggedIn &&
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Hello, {userProfile?.firstName}
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem>My Reviews</DropdownItem>
+                    <DropdownItem>My Job Listings</DropdownItem>
+                    {isLoggedIn && userProfile && userProfile.isAdmin === true ? (
+                      <><DropdownItem divider />
+                        <DropdownItem onClick={() => navigate("/Types")}>Type Management</DropdownItem>
+                        <DropdownItem>Review Management</DropdownItem></>) : null}
+                    <DropdownItem divider />
+                    {isLoggedIn &&
+                      <>
+                        <DropdownItem><a aria-current="page" className="nav-link"
+                          style={{ cursor: "pointer" }} onClick={logout}>Logout</a></DropdownItem>
+                      </>
+                    }
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                }
+            </Nav>
           </Nav>
-          <Nav navbar>             
+          <Nav navbar>
             {!isLoggedIn &&
               <>
                 <NavItem>

@@ -47,3 +47,7 @@
 .gearReviewCard {
     margin: 5px;
 }
+
+.gearReviewCardFooter {
+    text-align: right;
+}
