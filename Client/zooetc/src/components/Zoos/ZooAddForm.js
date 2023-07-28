@@ -7,7 +7,7 @@ import TextArea from 'antd/es/input/TextArea';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export default function ZooForm({ zooName, address, city,
+export default function ZooAddForm({ zooName, address, city,
     state, phoneNumber, zooImgUrl,
     zooUrl, description, handleInputChange,
     handleSave}) {
@@ -19,7 +19,7 @@ export default function ZooForm({ zooName, address, city,
     };
 
     const navigate = useNavigate();
-    if (zooName) {
+   
     return <>
         <Form
             name='ZooForm'
@@ -199,5 +199,4 @@ export default function ZooForm({ zooName, address, city,
 
     </Form >
     </>
-    }
 }

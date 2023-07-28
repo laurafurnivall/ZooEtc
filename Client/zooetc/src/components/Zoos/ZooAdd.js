@@ -1,7 +1,7 @@
 import { useState } from "react"
-import ZooForm from "./ZooForm"
 import { addZoo } from "../../modules/zooManager"
 import { useNavigate } from "react-router-dom";
+import ZooAddForm from "./ZooAddForm";
 
 export default function ZooAdd () {
     const emptyZoo = {
@@ -38,7 +38,7 @@ export default function ZooAdd () {
 
     return<>
     <h4>Add a Zoo:</h4>
-    <ZooForm 
+    <ZooAddForm 
         zooName={newZoo.ZooName}
         address={newZoo.Address}
         city={newZoo.City}

@@ -6,11 +6,11 @@ import {
 import TextArea from 'antd/es/input/TextArea';
 import { useNavigate } from "react-router-dom";
 
-export default function GearForm({ title, description, purchaseUrl, imageUrl, handleInputChange, handleSave }) {
+export default function GearAddForm({ title, description, purchaseUrl, imageUrl, handleInputChange, handleSave }) {
 
     const navigate = useNavigate();
 
-    if (title) {
+    
     return <><Form
         name='GearForm'
         labelCol={{
@@ -108,5 +108,4 @@ export default function GearForm({ title, description, purchaseUrl, imageUrl, ha
         </Form.Item>
     </Form >
     </>
-    }
 }

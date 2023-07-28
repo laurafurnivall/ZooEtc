@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
 import { addGear } from "../../modules/gearManager";
-import GearForm from "./GearForm";
-import { Descriptions } from "antd";
+import GearAddForm from "./GearAddForm";
+
 
 export default function GearAdd() {
     const [newGear, addNewGear] = useState({
@@ -33,7 +33,7 @@ export default function GearAdd() {
     }
     return <>
         <h4>Add new Gear:</h4>
-        <GearForm
+        <GearAddForm
             title={newGear.title}
             description={newGear.description}
             purchaseUrl={newGear.purchaseUrl}
