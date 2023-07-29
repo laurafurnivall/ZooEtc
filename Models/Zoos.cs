@@ -37,5 +37,13 @@ namespace ZooEtc.Models
 
         public List <ZooReviews> ZooReviews { get; set; }
 
+        public string Location
+        {
+            get
+            {
+                return City + ", " + State;
+            }
+        }
+
     }
 }

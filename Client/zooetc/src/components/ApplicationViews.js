@@ -16,6 +16,10 @@ import AddGearReview from "./GearReviews/AddGearReviews";
 import EditGearReview from "./GearReviews/EditGearReview";
 import AddZooReview from "./ZooReviews/AddZooReview";
 import EditZooReview from "./ZooReviews/EditZooReview";
+import JobContainer from "./JobListings/JobContainer";
+import JobAdd from "./JobListings/JobAdd";
+import JobDetails from "./JobListings/JobDetail";
+import JobEdit from "./JobListings/JobEdit";
 
 export default function ApplicationViews({ isLoggedIn, userProfile }) {
     return (
@@ -39,6 +43,12 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                         <Route path="Add" element={<GearAdd />} />
                         <Route path=":id" element={isLoggedIn ? <GearDetails userProfile={userProfile}/> : <Navigate to="/login" />} />
                         <Route path="Update/:id" element={<GearEdit />} />
+                    </Route>
+                    <Route path="JobListings">
+                        <Route index element={isLoggedIn ? <JobContainer userProfile={userProfile} /> : <Navigate to="/login" />} />
+                        <Route path="Add" element={<JobAdd userProfile={userProfile}/>} />
+                        <Route path=":id" element={isLoggedIn ? <JobDetails userProfile={userProfile}/> : <Navigate to="/login" />} />
+                        <Route path="Update/:id" element={<JobEdit />} />
                     </Route>
                     <Route path="GearReviews">
                         <Route path="Add/:id" element={isLoggedIn ? <AddGearReview userProfile={userProfile}/> : <Navigate to="/login" />} />
