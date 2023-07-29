@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import LandingPage from "./LandingPage";
-import ZooList from "./Zoos/ZooList";
+import ZooContainer from "./Zoos/ZooContainer";
 import ZooAdd from "./Zoos/ZooAdd";
 import ZooDetails from "./Zoos/ZooDetails";
 import ZooEdit from "./Zoos/ZooEdit";
@@ -33,7 +33,7 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="Zoos">
-                        <Route index element={isLoggedIn ? <ZooList userProfile={userProfile} /> : <Navigate to="/login" />} />
+                        <Route index element={isLoggedIn ? <ZooContainer userProfile={userProfile} /> : <Navigate to="/login" />} />
                         <Route path="Add" element={<ZooAdd />} />
                         <Route path=":id" element={<ZooDetails userProfile={userProfile} />} />
                         <Route path="Update/:id" element={<ZooEdit />} />
