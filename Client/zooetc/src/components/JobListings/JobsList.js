@@ -3,7 +3,7 @@ import { getAllJobs } from "../../modules/jobListingsManager";
 import JobCard from "./JobCard";
 import { Table } from "reactstrap";
 
-export default function JobList({ searchTermState, userProfile }) {
+export default function JobList({ searchTermState }) {
     const [jobs, setJobs] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([])
 
@@ -61,6 +61,7 @@ export default function JobList({ searchTermState, userProfile }) {
                         postingDate: j.postingDate,
                         zooName: j.zoo.zooName,
                         location: j.zoo.location
+                        
                     }}
                 />)
                 }
