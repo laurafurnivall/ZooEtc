@@ -31,7 +31,7 @@ export default function JobDetails({ userProfile }) {
       }
 
 
-    if (userProfile && job.title) {
+    if (userProfile) {
         return <>
             <Layout>
                 <Content>
