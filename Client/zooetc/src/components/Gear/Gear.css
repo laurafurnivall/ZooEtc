@@ -6,7 +6,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: white;
+    border: 1px solid lightgrey;
 
+}
+
+.siderGear {
+    background-color: white !important;
 }
 
 .gearItems {
@@ -29,6 +35,7 @@
 
 .gearRating {
     font-size: 14px;
+    color: #005626;
 }
 
 .cardTitle {
@@ -42,12 +49,16 @@
 .gearRatingR {
     margin: 10px;
     font-size: 14px;
+    color: #005626;
 }
 
 .gearReviewCard {
     margin: 5px;
+    background-color: #cad6cf;
+    text-align: left;
 }
 
 .gearReviewCardFooter {
     text-align: right;
+    
 }

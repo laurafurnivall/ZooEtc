@@ -27,7 +27,7 @@ export default function GearDetails({userProfile }) {
     const average = averageRate.reduce((total, rating) => total + rating, 0) / averageRate.length
 
     return (<>
-        <Layout>
+        <Layout className="zooContainer">
             <Sider className="siderGear" width={350}>
                 <Card className="gearCard"
                     actions={[

@@ -54,8 +54,10 @@ export default function EditGearReview() {
 
     if (reviewToEdit.longevity) {
         return <>
+        <article className="zooContainer">
             <h4>Review to Edit</h4>
             <Form
+            className="zooform"
                 name='GearReviewForm'
                 labelCol={{
                     span: 8,
@@ -72,7 +74,7 @@ export default function EditGearReview() {
                     label="Longevity"
                     name="longevity"
                     id="longevity">
-                    <Rate id="longevity"
+                    <Rate id="longevity" className="zooRating"
                         onChange={handleLongevityChange}
                         defaultValue={reviewToEdit.longevity}
                         value={reviewToEdit.longevity}
@@ -82,7 +84,7 @@ export default function EditGearReview() {
                     label="Versatility"
                     name="versatility"
                     id="versatility">
-                    <Rate id="versatility"
+                    <Rate id="versatility" className="zooRating"
                         onChange={handleVersatilityChange}
                         defaultValue={reviewToEdit.versatility}
                         value={reviewToEdit.versatility}
@@ -92,7 +94,7 @@ export default function EditGearReview() {
                     label="Comfort"
                     name="comfort"
                     id="comfort">
-                    <Rate id="comfort"
+                    <Rate id="comfort" className="zooRating"
                         onChange={handleComfortChange}
                         defaultValue={reviewToEdit.comfort}
                         value={reviewToEdit.comfort}
@@ -109,11 +111,12 @@ export default function EditGearReview() {
                         onChange={handleInputChange}
                         name="comments" />
                 </Form.Item>
-                <Form.Item>
-                    <Button onClick={handleSave}>Save</Button>
-                    <Button onClick={() => navigate(`/Gear/${id}`)}>Cancel</Button>
+                <Form.Item className='buttonGroup'>
+                    <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+                    <Button className="zooFormButton" onClick={() => navigate(`/Gear/${id}`)}>Cancel</Button>
                 </Form.Item>
             </Form>
+            </article>
         </>
     }
 }

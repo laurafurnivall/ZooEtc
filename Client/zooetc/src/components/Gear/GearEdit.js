@@ -36,7 +36,7 @@ export default function GearEdit() {
         editGear(id, gear)
             .then(() => navigate("/Gear"))
     }
-    return <>
+    return <><article className="zooContainer"> 
         <h4>Edit Item:</h4>
         <GearForm
             title={gear.title}
@@ -45,6 +45,6 @@ export default function GearEdit() {
             imageUrl={gear.imageUrl}
             handleInputChange={handleInputChange}
             handleSave={handleSave}
-        />
+        /></article>
     </>
 }

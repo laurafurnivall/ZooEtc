@@ -66,6 +66,7 @@ export default function AddGearReview({ userProfile }) {
 
     if (userProfile) {
         return <>
+        <article className="zooContainer">
             <h4>Add a Review to <i>{gearToReview.title}</i></h4>
             <Form
                 name='GearReviewForm'
@@ -84,7 +85,7 @@ export default function AddGearReview({ userProfile }) {
                     label="Longevity"
                     name="longevity"
                     id="longevity">
-                    <Rate id="longevity"
+                    <Rate id="longevity" className="zooRating"
                         onChange={handleLongevityChange}
                         value={newReview.longevity}
                         name="longevity" />
@@ -93,7 +94,7 @@ export default function AddGearReview({ userProfile }) {
                     label="Versatility"
                     name="versatility"
                     id="versatility">
-                    <Rate id="versatility"
+                    <Rate id="versatility" className="zooRating"
                         onChange={handleVersatilityChange}
                         value={newReview.versatility}
                         name="versatility" />
@@ -102,7 +103,7 @@ export default function AddGearReview({ userProfile }) {
                     label="Comfort"
                     name="comfort"
                     id="comfort">
-                    <Rate id="comfort"
+                    <Rate id="comfort" className="zooRating"
                         onChange={handleComfortChange}
                         value={newReview.comfort}
                         name="comfort" />
@@ -117,11 +118,12 @@ export default function AddGearReview({ userProfile }) {
                         onChange={handleInputChange}
                         name="comments" />
                 </Form.Item>
-                <Form.Item>
-                    <Button onClick={handleSave}>Save</Button>
-                    <Button onClick={() => navigate("/Gear")}>Cancel</Button>
+                <Form.Item className='buttonGroup'>
+                    <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+                    <Button className="zooFormButton" onClick={() => navigate("/Gear")}>Cancel</Button>
                 </Form.Item>
             </Form>
+            </article>
         </>
     }
 }

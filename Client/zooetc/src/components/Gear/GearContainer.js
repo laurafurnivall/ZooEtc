@@ -9,8 +9,10 @@ export default function GearContainer ({userProfile }) {
     const navigate = useNavigate();
 
     return<>
-    <Button onClick={() => {navigate("./add")}}>Add New Item</Button>
-    <GearSearch setterFunction={setSearchTerms}/>
+    <article className="zooContainer"> <div className="buttonAndSearch">
+    <Button className="addButton" onClick={() => {navigate("./add")}}>Add New Item</Button>
+    <GearSearch setterFunction={setSearchTerms}/></div>
     <GearList userProfile={userProfile} searchTermState={searchTerms}/>
+    </article>
     </>
 }

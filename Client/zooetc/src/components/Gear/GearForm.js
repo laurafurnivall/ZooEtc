@@ -102,9 +102,9 @@ export default function GearForm({ title, description, purchaseUrl, imageUrl, ha
                 onChange={handleInputChange}
                 name="description" />
         </Form.Item>
-        <Form.Item>
-            <Button onClick={handleSave}>Save</Button>
-            <Button onClick={() => navigate("/Gear")}>Cancel</Button>
+        <Form.Item className='buttonGroup'>
+            <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+            <Button className="zooFormButton" onClick={() => navigate("/Gear")}>Cancel</Button>
         </Form.Item>
     </Form >
     </>

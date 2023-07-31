@@ -65,7 +65,7 @@ export default function EditZooReview () {
                     label="Animal Care"
                     name="animalCare"
                     id="animalCare">
-                    <Rate id="animalCare"
+                    <Rate id="animalCare" className="zooRating"
                         onChange={
                             (value) => {
                                 const copy = {...reviewToEdit}
@@ -80,7 +80,7 @@ export default function EditZooReview () {
                     label="Benefits"
                     name="benefits"
                     id="benefits">
-                    <Rate id="benefits"
+                    <Rate id="benefits" className="zooRating"
                         onChange={
                             (value) => {
                                 const copy = {...reviewToEdit}
@@ -95,7 +95,7 @@ export default function EditZooReview () {
                     label="Conservation Initiative"
                     name="conservationInitiative"
                     id="conservationInitiative">
-                    <Rate id="conservationInitiative"
+                    <Rate id="conservationInitiative" className="zooRating"
                         onChange={(value) => {
                             const copy = {...reviewToEdit}
                             copy.conservationInitiative = value
@@ -108,7 +108,7 @@ export default function EditZooReview () {
                     label="Culture"
                     name="culture"
                     id="culture">
-                    <Rate id="culture"
+                    <Rate id="culture" className="zooRating"
                         onChange={(value) => {
                             const copy = {...reviewToEdit}
                             copy.culture = value
@@ -121,7 +121,7 @@ export default function EditZooReview () {
                     label="Inclusivity"
                     name="inclusivity"
                     id="inclusivity">
-                    <Rate id="inclusivity"
+                    <Rate id="inclusivity" className="zooRating"
                         onChange={(value) => {
                             const copy = {...reviewToEdit}
                             copy.inclusivity = value
@@ -134,7 +134,7 @@ export default function EditZooReview () {
                     label="Leadership"
                     name="leadership"
                     id="leadership">
-                    <Rate id="leadership"
+                    <Rate id="leadership" className="zooRating"
                         onChange={(value) => {
                             const copy = {...reviewToEdit}
                             copy.leadership = value
@@ -147,7 +147,7 @@ export default function EditZooReview () {
                     label="Salary"
                     name="salary"
                     id="salary">
-                    <Rate id="salary"
+                    <Rate id="salary" className="zooRating"
                         onChange={(value) => {
                             const copy = {...reviewToEdit}
                             copy.salary = value

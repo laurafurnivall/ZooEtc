@@ -12,6 +12,7 @@ export default function GearAddForm({ title, description, purchaseUrl, imageUrl,
 
     
     return <><Form
+    className='zooform'
         name='GearForm'
         labelCol={{
             span: 8,
@@ -98,9 +99,9 @@ export default function GearAddForm({ title, description, purchaseUrl, imageUrl,
                 onChange={handleInputChange}
                 name="description" />
         </Form.Item>
-        <Form.Item>
-            <Button onClick={handleSave}>Save</Button>
-            <Button onClick={() => navigate("/Gear")}>Cancel</Button>
+        <Form.Item className='buttonGroup'>
+            <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+            <Button className="zooFormButton" onClick={() => navigate("/Gear")}>Cancel</Button>
         </Form.Item>
     </Form >
     </>

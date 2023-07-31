@@ -27,7 +27,7 @@ export default function GearReviewCard ({id, reviewDate, longevity, versatility,
             <h6><b>Review Date:</b> {reviewDate}</h6>
         </CardTitle>
         <CardBody>
-            <Space>
+            <Space className='zooSpace'>
             <b>Longevity: </b><Rate className="gearRatingR" disabled defaultValue={longevity} />
             <b>Versatilty:</b> <Rate className="gearRatingR" disabled defaultValue={versatility} />
             <b>Comfort:</b> <Rate className="gearRatingR" disabled defaultValue={comfort} />

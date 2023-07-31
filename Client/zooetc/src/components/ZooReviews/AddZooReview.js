@@ -71,7 +71,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Animal Care"
                     name="animalCare"
                     id="animalCare">
-                    <Rate id="animalCare"
+                    <Rate id="animalCare" className="zooRating"
                         onChange={
                             (value) => {
                                 const copy = {...newZooReview}
@@ -86,7 +86,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Benefits"
                     name="benefits"
                     id="benefits">
-                    <Rate id="benefits"
+                    <Rate id="benefits" className="zooRating"
                         onChange={ (value) => {
                             const copy = {...newZooReview}
                             copy.benefits = value
@@ -99,7 +99,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Conservation Initiative"
                     name="conservationInitiative"
                     id="conservationInitiative">
-                    <Rate id="conservationInitiative"
+                    <Rate id="conservationInitiative" className="zooRating"
                         onChange={(value) => {
                             const copy = {...newZooReview}
                             copy.conservationInitiative = value
@@ -112,7 +112,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Culture"
                     name="culture"
                     id="culture">
-                    <Rate id="culture"
+                    <Rate id="culture" className="zooRating"
                         onChange={(value) => {
                             const copy = {...newZooReview}
                             copy.culture = value
@@ -125,7 +125,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Inclusivity"
                     name="inclusivity"
                     id="inclusivity">
-                    <Rate id="inclusivity"
+                    <Rate id="inclusivity" className="zooRating"
                         onChange={(value) => {
                             const copy = {...newZooReview}
                             copy.inclusivity = value
@@ -138,7 +138,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Leadership"
                     name="leadership"
                     id="leadership">
-                    <Rate id="leadership"
+                    <Rate id="leadership" className="zooRating"
                         onChange={(value) => {
                             const copy = {...newZooReview}
                             copy.leadership = value
@@ -151,7 +151,7 @@ export default function AddZooReview ({userProfile}) {
                     label="Salary"
                     name="salary"
                     id="salary">
-                    <Rate id="salary"
+                    <Rate id="salary" className="zooRating"
                         onChange={(value) => {
                             const copy = {...newZooReview}
                             copy.salary = value
@@ -172,7 +172,7 @@ export default function AddZooReview ({userProfile}) {
                 </Form.Item>
                 <Form.Item className='buttonGroup'>
                     <Button className="zooFormButton" onClick={handleSave}>Save</Button>
-                    <Button className="zooFormButton" onClick={() => navigate("/Gear")}>Cancel</Button>
+                    <Button className="zooFormButton" onClick={() => navigate(`/Zoos/${id}`)}>Cancel</Button>
                 </Form.Item>
             </Form>
             </article>

@@ -32,6 +32,7 @@ export default function GearAdd() {
             .then(() => navigate("/Gear"))
     }
     return <>
+    <article className="zooContainer">
         <h4>Add new Gear:</h4>
         <GearAddForm
             title={newGear.title}
@@ -41,5 +42,6 @@ export default function GearAdd() {
             handleInputChange={handleInputChange}
             handleSave={handleSave}
         />
+        </article>
     </>
 }
