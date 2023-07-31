@@ -14,7 +14,7 @@ export default function GearCard({ userProfile, id, title, description, purchase
         <Card className="gearCard"
             cover={<img className="gearImage" alt="Gear Image" src={imageUrl} />}
             actions={[
-                <Space>
+                <Space className="linkOut">
                     <Tooltip title="Shop for this item?">
                         <ShoppingOutlined
                             key="shopping"
@@ -33,7 +33,7 @@ export default function GearCard({ userProfile, id, title, description, purchase
                             }} />
                     </Tooltip>
                     {userProfile && userProfile.isAdmin === true ? (
-                        <Space>
+                        <Space className="linkOut">
                             <EditOutlined
                                 className="gearCardLink"
                                 onClick={() => {

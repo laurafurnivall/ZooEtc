@@ -16,6 +16,7 @@ export default function ZooCard({ zoo: {id, zooName, location, zooUrl}, userProf
             </td>
             <td>
                 <Link
+                className="linkOut"
                     href={zooUrl}
                     onClick={(e) => {
                         e.preventDefault();

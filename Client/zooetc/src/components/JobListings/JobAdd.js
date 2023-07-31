@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { addJob } from "../../modules/jobListingsManager";
 import { getAllZoos } from "../../modules/zooManager";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import {  Form, FormGroup, Label, Input } from "reactstrap";
 import "./Jobs.css"
+import { Button } from "antd";
 
 export default function JobAdd({ userProfile }) {
     const formatDate = (date) => {
@@ -57,6 +58,7 @@ export default function JobAdd({ userProfile }) {
 
     if (allZoos) {
     return <>
+    <article className="zooContainer">
         <Form className="addJobForm">
             <FormGroup>
                 <Label for="zooId">Zoo</Label>
@@ -153,11 +155,12 @@ export default function JobAdd({ userProfile }) {
                 value={newJob.removalDate}
                 />
             </FormGroup>
-
-
-            <Button onClick={handleSave}>Save</Button>
-            <Button onClick={() => navigate("/JobLisitngs")}>Cancel</Button>
-        </Form>
+            <FormGroup className='buttonGroup'>
+                    <Button className="zooFormButton addButton" onClick={handleSave}>Save</Button>
+                    <Button className="zooFormButton addButton" onClick={() => navigate("/JobListings")}>Cancel</Button>
+                </FormGroup>
+        </Form> 
+        </article>
     </>
 }
 }

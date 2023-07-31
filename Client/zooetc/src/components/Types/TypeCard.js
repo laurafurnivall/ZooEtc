@@ -1,6 +1,6 @@
 import { Card, Space, Modal, Form, Input } from "antd";
 import { CardTitle } from "reactstrap";
-import { EditOutlined, DeleteOutlined} from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import "./Types.css"
 import { useState } from "react";
 import { editType, getAllTypes } from "../../modules/typeManager";
@@ -31,8 +31,8 @@ export default function TypeCard({ typeId, type, showConfirm, setTypes }) {
     };
 
 
-       return <>
-       <Modal title="Edit Type" open={isModalOpen} okText="Save" onOk={handleOk} onCancel={handleCancel}>
+    return <>
+        <Modal title="Edit Type" open={isModalOpen} okText="Save" onOk={handleOk} onCancel={handleCancel}>
             <Form name="TypeForm">
                 <Form.Item
                     title="Edit Type"
@@ -41,7 +41,7 @@ export default function TypeCard({ typeId, type, showConfirm, setTypes }) {
                         id="type"
                         value={type}
                         onChange={(event) => {
-                            const copy = {...editedType}
+                            const copy = { ...editedType }
                             copy.type = event.target.value
                             updateType(copy)
                         }}
@@ -52,15 +52,15 @@ export default function TypeCard({ typeId, type, showConfirm, setTypes }) {
 
         <Card className="typeCard"
             actions={[
-                <Space>
+                <Space className="linkOut">
                     <EditOutlined
-    className="gearCardLink"
-    onClick={() => showModal()}
-/>
-<DeleteOutlined
-    className="gearCardLink"
-    onClick={() => showConfirm(typeId)}
-/>
+                        className="gearCardLink"
+                        onClick={() => showModal()}
+                    />
+                    <DeleteOutlined
+                        className="gearCardLink"
+                        onClick={() => showConfirm(typeId)}
+                    />
                 </Space>
 
             ]}>

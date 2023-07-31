@@ -38,7 +38,7 @@ export default function GearReviewCard ({id, reviewDate, longevity, versatility,
             <CardFooter className='gearReviewCardFooter'>
                 {
                     userProfile && userId === userProfile.id || userProfile.isAdmin === true ? (
-                        <Space>
+                        <Space className='linkOut'>
                             <EditOutlined
                                 className="gearCardLink"
                                 onClick={() => {

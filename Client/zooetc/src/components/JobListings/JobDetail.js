@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { deleteJob, getJob } from "../../modules/jobListingsManager";
-import { Descriptions, Layout, Space, Modal } from "antd";
-import { Button, Spinner } from "reactstrap";
+import { Descriptions, Layout, Space, Modal, Button } from "antd";
+import { Spinner } from "reactstrap";
 import { Content, Footer } from "antd/es/layout/layout";
-import {  EditOutlined, DeleteOutlined, ExclamationCircleFilled  } from '@ant-design/icons';
+import {  EditOutlined, DeleteOutlined, ExclamationCircleFilled, InfoCircleOutlined   } from '@ant-design/icons';
 
 export default function JobDetails({ userProfile }) {
     const { id } = useParams();
@@ -44,7 +44,8 @@ export default function JobDetails({ userProfile }) {
 
     if (userProfile) {
         return <>
-            <Layout>
+
+            <Layout className="zooContainer jobDetailContainer">
                 <Content>
                     <Descriptions title={job.title} layout="horizontal" column={1} >
 
@@ -62,21 +63,23 @@ export default function JobDetails({ userProfile }) {
                     </Descriptions>
                     {job.description}
                 </Content>
-                <Footer>
-                    {
-                        <Button onClick={() => window.open(job.jobUrl, '_blank')}>
-                            More Info
-                        </Button>
-                    }
+                <Footer  className='jobCardFooter'>
+                        <InfoCircleOutlined 
+                         className="linkOut jobRatingR"
+                         style={{fontSize: 25}}
+                        onClick={() => window.open(job.jobUrl, '_blank')}/>
+                    
                     {userProfile && userProfile === job.UserId || userProfile.isAdmin === true ? (
                        <Space>
                        <EditOutlined 
-                       style={{ fontSize: '16px' }} 
+                       className="linkOut jobRatingR"
+                       style={{fontSize: 25, textAlign: "left"}}
                        onClick={() => {
                            navigate(`/JobListings/Update/${job.id}`);
                          }}/>
                        <DeleteOutlined 
-                       style={{ fontSize: '16px' }} 
+                       className="linkOut jobRatingR"
+                       style={{fontSize: 25, textAlign: "left"}}
                        onClick={() => {showConfirm(job.id)}} 
                        /> </Space>)
                     : ""}

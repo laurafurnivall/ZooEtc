@@ -8,9 +8,10 @@ export default function JobContainer ({userProfile}) {
     const [searchTerms, setSearchTerms] = useState("")
     const navigate = useNavigate();
 
-    return <>
-    <Button onClick={() => {navigate("./add")}}>Add New Job Listing</Button>
-    <JobSearch setterFunction={setSearchTerms}/>
+    return <> <article className="zooContainer"> <div className="buttonAndSearch"> 
+    <Button className="addButton" onClick={() => {navigate("./add")}}>Add New Job Listing</Button>
+    <JobSearch setterFunction={setSearchTerms}/> </div>
     <JobList userProfile={userProfile} searchTermState={searchTerms}/>
+    </article>
     </>
 }

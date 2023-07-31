@@ -6,9 +6,10 @@
 
 .typeCard {
     width: 10rem;
-    height: 8rem;
-    margin: 2px 2px;
+    height: 9rem;
+    margin: 10px 10px;
     text-align: center;
+    border: 1px solid darkgray;
     
 }
 

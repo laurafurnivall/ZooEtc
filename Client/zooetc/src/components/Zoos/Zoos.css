@@ -86,6 +86,12 @@ body {
     margin-top: 10px
 }
 
+.addButton:hover {
+    color: darkolivegreen !important;
+    font-weight: bold !important;
+    border-color: darkolivegreen !important;
+}
+
 .zooFormButton {
     margin-left: 10px;
 }
@@ -120,3 +126,12 @@ h4 {
     background-color: white;
 }
 
+.linkOut {
+    color:#005626;
+    text-decoration: none;
+}
+
+.linkOut:hover {
+    color: darkolivegreen;
+    font-weight: bold !important;
+}

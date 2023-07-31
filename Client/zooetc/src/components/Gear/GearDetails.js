@@ -31,7 +31,7 @@ export default function GearDetails({userProfile }) {
             <Sider className="siderGear" width={350}>
                 <Card className="gearCard"
                     actions={[
-                        <Space>
+                        <Space className="linkOut">
                             <Tooltip title="Shop for this item?">
                                 <ShoppingOutlined
                                     key="shopping"

@@ -5,7 +5,7 @@ export default function JobCard({job: {id, title, postingDate, zooName, location
     return <>
         <tr>
             <td scope="row">
-                <Link to={`./${id}`}
+                <Link className="linkOut" to={`./${id}`}
                     >{title}</Link>
             </td>
             <td>

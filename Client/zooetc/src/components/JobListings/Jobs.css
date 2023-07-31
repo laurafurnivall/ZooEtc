@@ -2,3 +2,37 @@
     max-width: 600px;
     margin: 20px;
 }
+
+.jobCardFooter {
+    background-color: white;
+}
+
+.jobDetailContainer {
+    padding: 20px;
+}
+
+.jobRatingR {
+    margin: 10px;
+    font-size: 14px;
+    color: #005626;
+}
+
+.linkOut {
+    color:#005626 !important;
+    text-decoration: none;
+}
+
+.linkOut:hover {
+    color: darkolivegreen !important;
+    font-weight: bold !important;
+}
+
+.addButton:hover {
+    color: darkolivegreen !important;
+    font-weight: bold !important;
+    border-color: darkolivegreen !important;
+}
+
+.addButton {
+    margin-top: 10px
+}
