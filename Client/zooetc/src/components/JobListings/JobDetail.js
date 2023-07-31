@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { deleteJob, getJob } from "../../modules/jobListingsManager";
 import { Descriptions, Layout, Space, Modal } from "antd";
-import { Button } from "reactstrap";
+import { Button, Spinner } from "reactstrap";
 import { Content, Footer } from "antd/es/layout/layout";
 import {  EditOutlined, DeleteOutlined, ExclamationCircleFilled  } from '@ant-design/icons';
 
 export default function JobDetails({ userProfile }) {
     const { id } = useParams();
     const [job, setJob] = useState();
+    const [isLoading, setIsLoading] = useState(true);
     const { confirm } = Modal;
     const navigate = useNavigate();
     
     useEffect(() => {
-        getJob(id).then(setJob);
+        getJob(id).then(job => {
+            setJob(job);
+            setIsLoading(false);
+        });
     }, []);
 
     const showConfirm = (id) => {
@@ -22,7 +26,7 @@ export default function JobDetails({ userProfile }) {
           icon: <ExclamationCircleFilled />,
           onOk() {
             deleteJob(id)
-            navigate("./")
+            navigate("/JobListings")
           },
           onCancel() {
             console.log('Cancel');
@@ -30,6 +34,13 @@ export default function JobDetails({ userProfile }) {
         });
       }
 
+    if (isLoading) {
+        return <><Spinner color="dark" 
+        style={{
+            height: '3rem',
+            width: '3rem'
+          }}>Loading...</Spinner></>
+    }
 
     if (userProfile) {
         return <>
