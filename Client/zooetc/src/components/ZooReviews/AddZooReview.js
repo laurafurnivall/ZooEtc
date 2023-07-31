@@ -4,6 +4,7 @@ import { getZoo } from "../../modules/zooManager";
 import { addZooReview } from "../../modules/zooReviewManager";
 import { Rate, Button, Form } from "antd";
 import TextArea from 'antd/es/input/TextArea';
+import "./zooReview.css"
 
 export default function AddZooReview ({userProfile}) {
     const {id} = useParams();
@@ -50,8 +51,10 @@ export default function AddZooReview ({userProfile}) {
 
     if (userProfile) {
         return <>
+        <article  className="zooContainer">
             <h4>Add a Review to <i>{zooToReview.zooName}</i></h4>
             <Form
+            className='zooform'
                 name='ZooReviewForm'
                 labelCol={{
                     span: 8,
@@ -167,11 +170,12 @@ export default function AddZooReview ({userProfile}) {
                         onChange={handleInputChange}
                         name="comments" />
                 </Form.Item>
-                <Form.Item>
-                    <Button onClick={handleSave}>Save</Button>
-                    <Button onClick={() => navigate("/Gear")}>Cancel</Button>
+                <Form.Item className='buttonGroup'>
+                    <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+                    <Button className="zooFormButton" onClick={() => navigate("/Gear")}>Cancel</Button>
                 </Form.Item>
             </Form>
+            </article>
         </>
     }
 }

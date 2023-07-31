@@ -7,7 +7,7 @@ import ZooReviewCard from "./ZooReviewCard";
 import { StarOutlined } from '@ant-design/icons';
 const { Footer, Content } = Layout;
 
-export default function ZooDetails( {userProfile }) {
+export default function ZooDetails({ userProfile }) {
     const { id } = useParams();
     const [zoo, setZoo] = useState();
     const navigate = useNavigate();
@@ -24,16 +24,9 @@ export default function ZooDetails( {userProfile }) {
     const average = averageRate.reduce((total, rating) => total + rating, 0) / averageRate.length
 
     return (
-        <Space
-            direction="vertical"
-            style={{
-                width: '100%',
-            }}
-            size={[0, 48]}
-        >
-            <Layout>
-
-                <Content className="zooDetailsContent">
+        <>
+            <Layout className="zooContainer">
+                <Content className="zooDetailContent">
                     <div>
                         {
                             zoo.zooImgUrl ? (<img className='zooImgOnDetails' src={zoo.zooImgUrl} alt="Zoo Logo" />) : ""
@@ -50,17 +43,20 @@ export default function ZooDetails( {userProfile }) {
                     </div>
                 </Content>
             </Layout>
-            <Layout>
+            <Layout className="zooContainer">
                 <Footer className="zooDetailsReviews">
                     <div className="zooReviewAndAdd">
-                        <Tooltip title="Leave a review?">
-                            <StarOutlined
+                        <h4>Reviews</h4>
+                        <div className="leaveAReview">
+                            <h6 className="leaveAReviewWords">Leave a review?</h6>
+                            <StarOutlined 
                                 className="zooCardLink"
                                 onClick={() => {
                                     navigate(`/ZooReviews/Add/${zoo.id}`);
                                 }} />
-                        </Tooltip><h4>Reviews</h4>
+                        </div>
                     </div>
+                    <div className="reviewCardsFlex">
                     {
                         zoo.zooReviews.map((zr) =>
                             <ZooReviewCard
@@ -80,8 +76,9 @@ export default function ZooDetails( {userProfile }) {
                             />
                         )
                     }
+                    </div>
                 </Footer>
             </Layout>
-        </Space>
+        </>
     )
 }

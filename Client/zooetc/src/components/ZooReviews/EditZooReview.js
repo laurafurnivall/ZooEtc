@@ -3,6 +3,7 @@ import TextArea from 'antd/es/input/TextArea';
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { editZooReview, getZooReview } from "../../modules/zooReviewManager";
+import "./zooReview.css"
 
 export default function EditZooReview () {
     const { id } = useParams();
@@ -35,6 +36,7 @@ export default function EditZooReview () {
 
     if (reviewToEdit.animalCare) {
         return <>
+        <article className="zooContainer">
             <h4>Review to Edit</h4>
             <Form
                 name='ZooReviewForm'
@@ -164,11 +166,12 @@ export default function EditZooReview () {
                         onChange={handleInputChange}
                         name="comments" />
                 </Form.Item>
-                <Form.Item>
-                    <Button onClick={handleSave}>Save</Button>
-                    <Button onClick={() => navigate(`/Zoos/${reviewToEdit.zooId}`)}>Cancel</Button>
+                <Form.Item className='buttonGroup'>
+                    <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+                    <Button className="zooFormButton" onClick={() => navigate(`/Zoos/${reviewToEdit.zooId}`)}>Cancel</Button>
                 </Form.Item>
             </Form>
+            </article>
         </>
     }
 }

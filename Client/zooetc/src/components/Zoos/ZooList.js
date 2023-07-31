@@ -4,6 +4,7 @@ import { Modal } from 'antd';
 import ZooCard from "./ZooCard";
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { Table } from "reactstrap";
+import "./Zoos.css"
 
 
 export default function ZooList({ userProfile, searchTermState }) {

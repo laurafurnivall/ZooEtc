@@ -24,7 +24,7 @@ export default function Header({ isLoggedIn, userProfile }) {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">Zoo Etc.</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} to="/"><img className='zooEtcLogo' alt="Zoo Etc. Logo" src='../images/zooEtcLogo1.png'/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

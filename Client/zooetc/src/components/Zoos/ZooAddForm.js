@@ -22,6 +22,7 @@ export default function ZooAddForm({ zooName, address, city,
    
     return <>
         <Form
+            className='zooform'
             name='ZooForm'
             labelCol={{
                 span: 8,
@@ -184,11 +185,10 @@ export default function ZooAddForm({ zooName, address, city,
                 onChange={handleInputChange}
                 name="description" />
         </Form.Item>
-        <Form.Item>
-            <Button onClick={handleSave}>Save</Button>
-            <Button onClick={() => navigate("/Zoos")}>Cancel</Button>
+        <Form.Item className='buttonGroup'>
+            <Button className="zooFormButton" onClick={handleSave}>Save</Button>
+            <Button className="zooFormButton" onClick={() => navigate("/Zoos")}>Cancel</Button>
         </Form.Item>
-
     </Form >
     </>
 }

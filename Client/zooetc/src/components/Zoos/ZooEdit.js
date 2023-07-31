@@ -40,7 +40,7 @@ export default function ZooEdit() {
             .then(() => navigate("/Zoos"))
     }
     console.log(zoo)
-    return <>
+    return <><article className="zooContainer">
         <h4>Edit Zoo Information:</h4>
         <ZooForm
             zooName={zoo.zooName}
@@ -54,6 +54,6 @@ export default function ZooEdit() {
             handleInputChange={handleInputChange}
             handleSave={handleSave}
         />
-
+</article>
     </>
 }

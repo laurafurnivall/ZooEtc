@@ -2,6 +2,7 @@ import { useState } from "react"
 import { addZoo } from "../../modules/zooManager"
 import { useNavigate } from "react-router-dom";
 import ZooAddForm from "./ZooAddForm";
+import "./Zoos.css"
 
 export default function ZooAdd () {
     const emptyZoo = {
@@ -37,7 +38,8 @@ export default function ZooAdd () {
     }
 
     return<>
-    <h4>Add a Zoo:</h4>
+    <article className="zooContainer">
+    <h4>Add a Zoological Institution:</h4>
     <ZooAddForm 
         zooName={newZoo.ZooName}
         address={newZoo.Address}
@@ -49,6 +51,6 @@ export default function ZooAdd () {
         description={newZoo.Description}
         handleInputChange={handleInputChange}
         handleSave={handleSave}/>
-    
+    </article>
     </>
 }

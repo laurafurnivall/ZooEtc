@@ -6,6 +6,7 @@ import ApplicationViews from "./components/ApplicationViews";
 import { onLoginStatusChange } from "./modules/authmanager";
 import { me } from './modules/authmanager';
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [userProfile, setUserProfile] = useState(null);

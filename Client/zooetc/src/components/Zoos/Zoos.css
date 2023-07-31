@@ -1,24 +1,37 @@
 .zooImgOnDetails {
-    max-height: 200px;
-    max-width: 300px;
+    max-height: 300px;
+    max-width: 400px;
     width: auto;
     height: auto;
 }
 
 .zooReviewCard {
     margin: 10px;
+    background-color: #cad6cf;
+    width: 400px;
+    text-align: left;
 }
 
 .zooRatingR {
     margin: 10px;
     font-size: 14px;
+    color: #005626;
 }
 
+.zooRating {
+    color: #005626;
+}
 
 .zooSpace {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: start;
+}
+
+.reviewCardsFlex {
+    display: flex;
+    flex-wrap: wrap;
+ 
 }
 
 .zooImgOnDetails {
@@ -42,9 +55,68 @@
 .zooReviewAndAdd {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .zooCardLink {
     font-size: 25px;
-    margin: 5px 10px
+    margin: 5px 15px
 }
+
+body {
+    margin-left: 25px;
+    margin-right: 25px;
+    background-image: url("C:\Users\laura\workspace\ZooEtc\ZooEtc\Client\zooetc\public\images\tracksbackground.jpg");
+    background-attachment: fixed;
+    background-size: 10%;
+    border: 1px solid lightgray;
+}
+
+.zooContainer {
+    background-color: white;
+    padding: 10px;
+}
+
+.buttonAndSearch {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.addButton {
+    margin-top: 10px
+}
+
+.zooFormButton {
+    margin-left: 10px;
+}
+
+.buttonGroup {
+    text-align: right;
+}
+
+h4 {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.zooDetailContent {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}
+
+.leaveAReview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaveAReviewWords {
+    margin-top: 5px;
+}
+
+.zooDetailsReviews {
+    background-color: white;
+}
+

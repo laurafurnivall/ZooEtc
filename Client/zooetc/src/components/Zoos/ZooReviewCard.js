@@ -4,6 +4,7 @@ import "./Zoos.css"
 import { deleteZooReview } from '../../modules/zooReviewManager';
 import { useNavigate } from 'react-router-dom';
 import { EditOutlined, DeleteOutlined, ExclamationCircleFilled } from '@ant-design/icons';
+import "./Zoos.css"
 
 export default function ZooReviewCard({ id, userProfile, userId, reviewDate, animalCare, culture, conservationInitiative, salary, benefits, leadership, inclusivity, comments }) {
     const { confirm } = Modal;
@@ -24,9 +25,6 @@ export default function ZooReviewCard({ id, userProfile, userId, reviewDate, ani
     if (userProfile) {
     return <>
         <Card className='zooReviewCard'>
-            <CardTitle>
-                <h6><b>Review Date:</b> {reviewDate}</h6>
-            </CardTitle>
             <CardBody>
                 <Space className='zooSpace'>
                     <div><b>Animal Care: </b><Rate className="zooRatingR" disabled allowhalf defaultValue={animalCare} /></div>
@@ -38,7 +36,7 @@ export default function ZooReviewCard({ id, userProfile, userId, reviewDate, ani
                     <div><b>Salary: </b><Rate className="zooRatingR" disabled allowhalf defaultValue={salary} /></div>
                 </Space>
                 <p><b>Comments: </b>{comments}</p>
-
+                <p style={{fontSize: 12}}><i>Review Date: {reviewDate}</i></p>
             </CardBody>
             <CardFooter className='gearReviewCardFooter'>
                 {

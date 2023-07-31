@@ -9,6 +9,6 @@ export default function LandingPage() {
       top: "50%",
       marginTop: "-0.5rem",
       textAlign: "center",
-    }}>hello</span>
+    }}>some very fascinating information about zoos, im sure...</span>
   );
 }
