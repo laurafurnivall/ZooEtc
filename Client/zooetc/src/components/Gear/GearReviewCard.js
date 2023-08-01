@@ -27,9 +27,6 @@ export default function GearReviewCard ({id, setItem, gearId, reviewDate, longev
 
     return <>
     <Card className='gearReviewCard'>
-        <CardTitle>
-            <h6><b>Review Date:</b> {reviewDate}</h6>
-        </CardTitle>
         <CardBody>
             <Space className='zooSpace'>
             <b>Longevity: </b><Rate className="gearRatingR" disabled defaultValue={longevity} />
@@ -37,7 +34,7 @@ export default function GearReviewCard ({id, setItem, gearId, reviewDate, longev
             <b>Comfort:</b> <Rate className="gearRatingR" disabled defaultValue={comfort} />
             </Space>
             <p><b>Comments: </b>{comments}</p>
-            
+            <p style={{fontSize: 12}}><i>Review Date: {reviewDate}</i></p>
         </CardBody>
             <CardFooter className='gearReviewCardFooter'>
                 {

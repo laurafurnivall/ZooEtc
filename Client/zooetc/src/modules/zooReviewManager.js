@@ -21,6 +21,25 @@ export const getAllZooReviews = () => {
     });
 };
 
+export const getZooReviewsByUser = (id) => {
+    return getToken().then((token) => {
+        return fetch(`${zrUrl}/MyReviews/${id}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }).then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error (
+                    "I'm sorry. The ZooReviews seemed to have disappeared!"
+                );
+            }
+        });
+    });
+};
+
 export const getZooReview = (id) => {
     return getToken().then((token) => {
         return fetch(`${zrUrl}/${id}`, {

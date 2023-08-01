@@ -1,3 +1,7 @@
-export default function MyZooReviews () {
+
+
+export default function MyZooReviews ({ userProfile }) {
+ 
+
     return<>My Zoo Reviews</>
 }

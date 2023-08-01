@@ -21,6 +21,25 @@ export const getAllGearReviews = () => {
     });
 };
 
+export const getGearReviewsByUser = (id) => {
+    return getToken().then((token) => {
+        return fetch(`${grUrl}/MyReviews/${id}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }).then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error (
+                    "I'm sorry. The Gear Reviews seemed to have disappeared!"
+                );
+            }
+        });
+    });
+};
+
 export const getGearReview = (id) => {
     return getToken().then((token) => {
         return fetch(`${grUrl}/${id}`, {
