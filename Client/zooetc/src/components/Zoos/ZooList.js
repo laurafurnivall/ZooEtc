@@ -67,7 +67,7 @@ export default function ZooList({ userProfile, searchTermState }) {
                         Website
                     </th>
                     <th>
-                        Actions
+                       {userProfile.isAdmin === true ? "Actions" : "More Info"}
                     </th>
                 </tr>
             </thead>
