@@ -4,16 +4,20 @@ import "./Gear.css"
 import { EditOutlined, DeleteOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import { deleteGearReview } from '../../modules/gearReviewManager';
 import { useNavigate } from 'react-router-dom';
+import { getGearItem } from '../../modules/gearManager';
 
-export default function GearReviewCard ({id, reviewDate, longevity, versatility, comfort, comments, userId, userProfile}) {
+export default function GearReviewCard ({id, setItem, gearId, reviewDate, longevity, versatility, comfort, comments, userId, userProfile}) {
     const { confirm } = Modal;
     const navigate = useNavigate();
+
+
     const showConfirm = (id) => {
         confirm({
             title: 'Do you Want to delete this review?',
             icon: <ExclamationCircleFilled />,
             onOk() {
                 deleteGearReview(id);
+                getGearItem(gearId).then(setItem);
             },
             onCancel() {
                 console.log('Cancel');

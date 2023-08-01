@@ -24,7 +24,8 @@ namespace ZooEtc.Repositories
                                         zr.Id AS ZooReviewId, zr.UserId, zr.ZooId AS ZooReviewZooId, zr.ReviewDate, zr.AnimalCare, zr.Culture, zr.ConservationInitiative,
                                         zr.Salary, zr.Benefits, zr.Leadership, zr.Inclusivity, zr.Comments, zr.isApproved
                                         FROM Zoos z
-                                        LEFT JOIN ZooReviews zr ON z.Id = zr.ZooId";
+                                        LEFT JOIN ZooReviews zr ON z.Id = zr.ZooId
+                                        ORDER BY z.ZooName";
                     using (var reader = cmd.ExecuteReader())
                     {
                         var zoos = new List<Zoos>();

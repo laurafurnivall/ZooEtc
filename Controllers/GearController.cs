@@ -3,21 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using ZooEtc.Repositories;
 using ZooEtc.Models;
 
-namespace ZooEtc.Controllers
+namespace ZooEtc.Controllers //manages direct flow of data between server and client side
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //route template
     [ApiController]
     public class GearController : ControllerBase
     {
         private readonly IGearRepository _gearRepository;
 
-        public GearController(IGearRepository gearRepository)
+        public GearController(IGearRepository gearRepository) //constructor, takes repository as parameter, implementing dependency injection
         {
             _gearRepository = gearRepository;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet] //attribute routes  that map to http methods
+        public IActionResult Get() //handle http requests, interact with repository to perform crud
         {
             return Ok(_gearRepository.GetAll());
         }

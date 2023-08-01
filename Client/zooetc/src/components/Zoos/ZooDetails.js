@@ -73,6 +73,8 @@ export default function ZooDetails({ userProfile }) {
                                 comments={zr.comments}
                                 userProfile={userProfile}
                                 userId={zr.userId}
+                                setZoo={setZoo}
+                                zooId={zr.zooId}
                             />
                         )
                     }

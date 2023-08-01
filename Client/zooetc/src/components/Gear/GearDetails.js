@@ -70,6 +70,7 @@ export default function GearDetails({userProfile }) {
                         <GearReviewCard
                             key={gr.id}
                             id={gr.id}
+                            gearId={gr.gearId}
                             userId={gr.userId}
                             reviewDate={gr.reviewDate}
                             longevity={gr.longevity}
@@ -77,7 +78,8 @@ export default function GearDetails({userProfile }) {
                             comfort={gr.comfort}
                             comments={gr.comments}
                             averageR={gr.averageRating} 
-                            userProfile={userProfile}/>
+                            userProfile={userProfile}
+                            setItem={setItem}/>
                     )
                 }
             </Content>
