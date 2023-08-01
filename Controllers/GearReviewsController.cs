@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ZooEtc.Models;
 using ZooEtc.Repositories;
 
-namespace ZooEtc.Controllers //manages direct floow of data between server and client side
+namespace ZooEtc.Controllers //manages direct flow of data between server and client side
 {
     [Route("api/[controller]")] //route template
     [ApiController]
@@ -11,7 +11,7 @@ namespace ZooEtc.Controllers //manages direct floow of data between server and c
     {
         private readonly IGearReviewsRepository _repository; //creating a dependency of of the repo and injecting it in using the below constructor
 
-        public GearReviewsController(IGearReviewsRepository repository) //utitlizing a repo without
+        public GearReviewsController(IGearReviewsRepository repository) //utitlizing a repo
         {
             _repository = repository;
         }
@@ -31,6 +31,12 @@ namespace ZooEtc.Controllers //manages direct floow of data between server and c
                 return NotFound();
             }
             return Ok(review);
+        }
+
+        [HttpGet("myReviews/{id}")]
+        public IActionResult GetByUser(int id) //retrieve/read all gear items by User
+        {
+            return Ok(_repository.GetByUserId(id));
         }
 
         [HttpPost("add")] // create new gear item -> gear/add

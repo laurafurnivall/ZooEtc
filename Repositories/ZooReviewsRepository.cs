@@ -61,6 +61,59 @@ namespace ZooEtc.Repositories
             }
         }
 
+        public List<ZooReviews> GetByUserId(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT zr.Id, zr.UserId, zr.ZooId, zr.ReviewDate, zr.AnimalCare, zr.Culture, zr.ConservationInitiative, zr.Salary, zr.Benefits, zr.Leadership, zr.Inclusivity, zr.Comments, zr.isApproved,
+                                               z.Id as ZooZooId, z.ZooName, z.[Address], z.City, z.State, z.PhoneNumber, z.ZooImgUrl, z.ZooUrl, z.[Description] AS ZooDescription
+                                        FROM ZooReviews zr
+                                        JOIN Zoos z ON zr.ZooId = z.Id
+                                        WHERE zr.UserId = @UserId";
+                    DbUtils.AddParameter(cmd, "@UserId", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        var reviews = new List<ZooReviews>();
+                        while (reader.Read())
+                        {
+                            reviews.Add(new ZooReviews()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                UserId = DbUtils.GetInt(reader, "UserId"),
+                                ZooId = DbUtils.GetInt(reader, "ZooId"),
+                                ReviewDate = DbUtils.GetString(reader, "ReviewDate"),
+                                AnimalCare = DbUtils.GetInt(reader, "AnimalCare"),
+                                Benefits = DbUtils.GetInt(reader, "Benefits"),
+                                Culture = DbUtils.GetInt(reader, "Culture"),
+                                ConservationInitiative = DbUtils.GetInt(reader, "ConservationInitiative"),
+                                Salary = DbUtils.GetInt(reader, "Salary"),
+                                Leadership = DbUtils.GetInt(reader, "Leadership"),
+                                Inclusivity = DbUtils.GetInt(reader, "Inclusivity"),
+                                Comments = DbUtils.GetString(reader, "Comments"),
+                                isApproved = reader.GetBoolean(reader.GetOrdinal("isApproved")),
+                                Zoo = new Zoos()
+                                {
+                                    Id = DbUtils.GetInt(reader, "ZooZooId"),
+                                    ZooName = DbUtils.GetString(reader, "ZooName"),
+                                    Address = DbUtils.GetString(reader, "Address"),
+                                    City = DbUtils.GetString(reader, "City"),
+                                    State = DbUtils.GetString(reader, "State"),
+                                    PhoneNumber = DbUtils.GetString(reader, "PhoneNumber"),
+                                    ZooImgUrl = DbUtils.GetString(reader, "ZooImgUrl"),
+                                    ZooUrl = DbUtils.GetString(reader, "ZooUrl"),
+                                    Description = DbUtils.GetString(reader, "ZooDescription")
+                                }
+                            });
+                        }
+                        return reviews;
+                    }
+                }
+            }
+        }
+
         public ZooReviews GetById(int id)
         {
             using (var conn = Connection)
