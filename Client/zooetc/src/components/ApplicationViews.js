@@ -20,6 +20,8 @@ import JobContainer from "./JobListings/JobContainer";
 import JobAdd from "./JobListings/JobAdd";
 import JobDetails from "./JobListings/JobDetail";
 import JobEdit from "./JobListings/JobEdit";
+import MyGearReviews from "./GearReviews/MyGearReviews";
+import MyZooReviews from "./ZooReviews/MyZooReviews";
 
 export default function ApplicationViews({ isLoggedIn, userProfile }) {
     return (
@@ -53,10 +55,12 @@ export default function ApplicationViews({ isLoggedIn, userProfile }) {
                     <Route path="GearReviews">
                         <Route path="Add/:id" element={isLoggedIn ? <AddGearReview userProfile={userProfile}/> : <Navigate to="/login" />} />
                         <Route path="Update/:id" element={isLoggedIn ? <EditGearReview userProfile={userProfile}/> : <Navigate to="/login" />} />
+                        <Route path="MyReviews" element={isLoggedIn ? <MyGearReviews userProfile={userProfile}/> : <Navigate to="/login" />} />
                     </Route>
                     <Route path="ZooReviews">
                         <Route path="Add/:id" element={isLoggedIn ? <AddZooReview userProfile={userProfile}/> : <Navigate to="/login" />} />
                         <Route path="Update/:id" element={isLoggedIn ? <EditZooReview userProfile={userProfile}/> : <Navigate to="/login" />} />
+                        <Route path="MyReviews" element={isLoggedIn ? <MyZooReviews userProfile={userProfile}/> : <Navigate to="/login" />} />
                     </Route>
                     <Route path="Types">
                         <Route index element={isLoggedIn ?  <TypeContainer userProfile={userProfile} /> : <Navigate to="/" /> }/>

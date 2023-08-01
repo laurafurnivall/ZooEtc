@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate } from "react-router-dom";
 import { register } from "../modules/authmanager";
+import { Button } from "antd";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -30,7 +31,8 @@ export default function Register() {
   };
 
   return (
-    <Form onSubmit={registerClick}>
+    <article className="zooContainer loginContainer">
+    <Form className="loginForm" onSubmit={registerClick}>
       <fieldset>
         <FormGroup>
           <Label htmlFor="firstName">First Name</Label>
@@ -81,9 +83,10 @@ export default function Register() {
           />
         </FormGroup>
         <FormGroup>
-          <Button>Register</Button>
+          <Button className="addButton">Register</Button>
         </FormGroup>
       </fieldset>
     </Form>
+    </article>
   );
 }

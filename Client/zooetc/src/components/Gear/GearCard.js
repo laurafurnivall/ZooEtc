@@ -9,6 +9,7 @@ import Meta from "antd/es/card/Meta";
 export default function GearCard({ userProfile, id, title, description, purchaseUrl, imageUrl, showConfirm, averageRating }) {
     const navigate = useNavigate();
     const average = averageRating.reduce((total, rating) => total + rating, 0) / averageRating.length;
+    //total is accumulating the rating , and total starts at 0, then dividing by the number of items in the array -averageRating
 
     return <>
         <Card className="gearCard"

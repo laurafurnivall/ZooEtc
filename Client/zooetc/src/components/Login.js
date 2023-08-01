@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../modules/authmanager";
-
+import { Button } from "antd";
 export default function Login() {
   const navigate = useNavigate();
 
@@ -17,7 +17,9 @@ export default function Login() {
   };
 
   return (
-    <Form onSubmit={loginSubmit}>
+    <article className="zooContainer loginContainer">
+    <img alt="ZooEtcLogo" className="loginLogo" src="../images/zooetc3.png"/>
+    <Form className="loginForm" onSubmit={loginSubmit}>
       <fieldset>
         <FormGroup>
           <Label for="email">Email</Label>
@@ -37,12 +39,13 @@ export default function Login() {
           />
         </FormGroup>
         <FormGroup>
-          <Button>Login</Button>
+          <Button className="addButton" onClick={loginSubmit}>Login</Button>
         </FormGroup>
         <em>
-          Not registered? <Link to="register">Register</Link>
+          Not registered? <Link className="linkOut" to="/Register">Register</Link>
         </em>
       </fieldset>
     </Form>
+    </article>
   );
 }

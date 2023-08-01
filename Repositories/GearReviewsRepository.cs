@@ -53,6 +53,51 @@ namespace ZooEtc.Repositories
             }
         }
 
+        public List<GearReviews> GetByUserId(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT gr.Id, gr.UserId, gr.GearId, gr.ReviewDate, gr.Longevity, gr.Versatility, gr.Comfort, gr.Comments, gr.isApproved,
+                                               g.Id AS GearGearId, g.Title, g.[Description], g.PurchaseUrl, g.ImageUrl
+                                        FROM GearReviews gr
+                                        JOIN Gear g ON g.Id = gr.GearId
+                                        Where gr.UserId = @UserId";
+                    DbUtils.AddParameter(cmd, "@UserId", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        var gearReviews = new List<GearReviews>();
+                        while (reader.Read())
+                        {
+                            gearReviews.Add(new GearReviews()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                UserId = DbUtils.GetInt(reader, "UserId"),
+                                GearId = DbUtils.GetInt(reader, "GearId"),
+                                ReviewDate = DbUtils.GetString(reader, "ReviewDate"),
+                                Longevity = DbUtils.GetInt(reader, "Longevity"),
+                                Versatility = DbUtils.GetInt(reader, "Versatility"),
+                                Comfort = DbUtils.GetInt(reader, "Comfort"),
+                                Comments = DbUtils.GetString(reader, "Comments"),
+                                isApproved = reader.GetBoolean(reader.GetOrdinal("isApproved")),
+                                Gear = new Gear()
+                                {
+                                    Id = DbUtils.GetInt(reader, "GearGearId"),
+                                    Title = DbUtils.GetString(reader, "Title"),
+                                    Description = DbUtils.GetString(reader, "Description"),
+                                    PurchaseUrl = DbUtils.GetString(reader, "PurchaseUrl"),
+                                    ImageUrl = DbUtils.GetString(reader, "ImageUrl")
+                                }
+                            });
+                        }
+                        return gearReviews;
+                    }
+                }
+            }
+        }
+
         public GearReviews GetById(int id)
         {
             using (var conn = Connection)

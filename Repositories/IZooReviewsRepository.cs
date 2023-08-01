@@ -10,5 +10,7 @@ namespace ZooEtc.Repositories
         List<ZooReviews> GetAll();
         ZooReviews GetById(int id);
         void Update(ZooReviews zooReviews);
+
+        List<ZooReviews> GetByUserId(int id);
     }
 }

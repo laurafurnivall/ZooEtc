@@ -34,6 +34,12 @@ namespace ZooEtc.Controllers
             return Ok(review);
         }
 
+        [HttpGet("myReviews/{id}")]
+        public IActionResult GetByUser(int id)
+        {
+            return Ok(_repository.GetByUserId(id));
+        }
+
         [HttpPost("add")]
         public IActionResult Post(ZooReviews review)
         {

@@ -5,8 +5,9 @@ import { deleteZooReview } from '../../modules/zooReviewManager';
 import { useNavigate } from 'react-router-dom';
 import { EditOutlined, DeleteOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import "./Zoos.css"
+import { getZoo } from '../../modules/zooManager';
 
-export default function ZooReviewCard({ id, userProfile, userId, reviewDate, animalCare, culture, conservationInitiative, salary, benefits, leadership, inclusivity, comments }) {
+export default function ZooReviewCard({ zooId, setZoo, id, userProfile, userId, reviewDate, animalCare, culture, conservationInitiative, salary, benefits, leadership, inclusivity, comments }) {
     const { confirm } = Modal;
     const navigate = useNavigate();
     const showConfirm = (id) => {
@@ -15,6 +16,7 @@ export default function ZooReviewCard({ id, userProfile, userId, reviewDate, ani
             icon: <ExclamationCircleFilled />,
             onOk() {
                 deleteZooReview(id);
+                getZoo(zooId).then(setZoo);
             },
             onCancel() {
                 console.log('Cancel');

@@ -10,16 +10,16 @@ using System.Linq;
 
 namespace ZooEtc.Repositories
 {
-    public class GearRepository : BaseRepository, IGearRepository
-    {
-        public GearRepository(IConfiguration configuration) : base(configuration) { }
+    public class GearRepository : BaseRepository, IGearRepository //inherits BaseRepository, allowing usage of connection string, IGearRepository, an interface, defines the methods that must be implemented
+    {// contains methods for connecting to database and querying data, basic CRUD
+        public GearRepository(IConfiguration configuration) : base(configuration) { } //access app config settings, passes the config settings through
 
-        public List<Gear> GetAll()
+        public List<Gear> GetAll() //retrieve all the gear records in the database
         {
-            using (var conn = Connection)
+            using (var conn = Connection) // create the connection
             {
-                conn.Open();
-                using (var cmd = conn.CreateCommand())
+                conn.Open(); //opens the connection
+                using (var cmd = conn.CreateCommand()) //creates a new sqlcommand which is used to execute sql commands in the database
                 {
                     cmd.CommandText = @"SELECT g.Id AS GearId, g.[Title], g.[Description], g.PurchaseUrl, g.ImageUrl,
                                                gr.Id AS GearReviewId, gr.UserId, gr.GearId AS GearReviewGearId, gr.ReviewDate, gr.Longevity, gr.Versatility, gr.Comfort, gr.Comments, gr.isApproved,
@@ -30,7 +30,7 @@ namespace ZooEtc.Repositories
                                         LEFT JOIN GearTypes gt ON g.Id = gt.GearId
                                         LEFT JOIN Types t on t.Id = gt.TypeId
                                         ORDER BY g.Title";
-                    using (var reader = cmd.ExecuteReader())
+                    using (var reader = cmd.ExecuteReader()) //executes the command and returns the sqldatareader object
                     {
                         var items = new List<Gear>();
                         while (reader.Read())
