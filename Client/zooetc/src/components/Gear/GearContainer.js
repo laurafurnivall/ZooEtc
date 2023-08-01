@@ -10,7 +10,7 @@ export default function GearContainer ({userProfile }) {
 
     return<>
     <article className="zooContainer"> <div className="buttonAndSearch">
-    <Button className="addButton" onClick={() => {navigate("./add")}}>Add New Item</Button>
+    {userProfile && userProfile.isAdmin === true ?  <Button className="addButton" onClick={() => {navigate("./add")}}>Add New Item</Button>  : ""}
     <GearSearch setterFunction={setSearchTerms}/></div>
     <GearList userProfile={userProfile} searchTermState={searchTerms}/>
     </article>

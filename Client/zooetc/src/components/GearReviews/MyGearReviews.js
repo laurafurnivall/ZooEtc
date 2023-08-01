@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getGearReviewsByUser } from "../../modules/gearReviewManager";
 import MyGearReviewCard from "./MyGearReviewCard";
 import { CardGroup, Spinner } from "reactstrap";
+import "./GearReview.css"
 
 export default function MyGearReviews ({userProfile}) {
     const [myReviews, setMyReviews] = useState();
@@ -25,8 +26,8 @@ export default function MyGearReviews ({userProfile}) {
     if (userProfile) {
     return<>
     <article className="zooContainer">
-        My Gear Reviews
-        <CardGroup>
+        <h6>My Gear Reviews</h6>
+        <CardGroup className="myGearReviewCards">
         {
             myReviews.map((r) => 
                 <MyGearReviewCard
@@ -35,11 +36,14 @@ export default function MyGearReviews ({userProfile}) {
                 reviewDate={r.reviewDate}
                 longevity={r.longevity}
                 versatility={r.versatility}
-                comofort={r.comfort}
+                comfort={r.comfort}
                 comments={r.comments}
                 title={r.gear.title}
                 imageUrl={r.gear.imageUrl}
                 description={r.gear.description}
+                setMyReviews={setMyReviews}
+                userProfile={userProfile}
+                userId={r.userId}
                  />
             )
         }

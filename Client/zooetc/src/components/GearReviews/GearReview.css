@@ -1,0 +1,33 @@
+.myGearReviewCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.singleReviewCard {
+    margin: 10px;
+    max-width: 600px;
+    border: 1px solid darkgray
+}
+
+.cardwithinacard {
+    max-width: 250px;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    text-align: center;   
+}
+
+.gearReviewImg {
+    max-width: 100px;
+    max-height: 125px;
+    width: auto;
+    height: auto
+
+}
+
+.cardBodyReview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

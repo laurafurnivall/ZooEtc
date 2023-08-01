@@ -1,5 +1,5 @@
 import { Rate, Card, Space, Modal } from 'antd';
-import { CardBody, CardFooter, CardTitle } from "reactstrap";
+import { CardBody, CardFooter } from "reactstrap";
 import "./Gear.css"
 import { EditOutlined, DeleteOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import { deleteGearReview } from '../../modules/gearReviewManager';
