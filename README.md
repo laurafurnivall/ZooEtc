@@ -11,6 +11,7 @@ Any zoo professional looking looking to make educated decisions about their care
 ### Why do I need it?
 
 After being apart of the zoo community for over ten years, I heard continuous conversations about:<BR>
+
   What is the best gear to buy?<BR>
   What does each zoo has to offer to their employees? <BR>
   What's the best enrichment to give to a certain species? <BR>
