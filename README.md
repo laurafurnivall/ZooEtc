@@ -1,5 +1,5 @@
 # ZooEtc
-##Full Stack Capstone for NSS
+## Full Stack Capstone for NSS
 
 Zoo Etc. is a catch all resource application for zoo professionals looking for the best zoos to work at and the best gear to buy. 
 It allows users to rate and review both zoos and gear, peruse job listings, and make educated decisions about their career.
