@@ -36,3 +36,30 @@ Coming Soon!
 
 ### Getting Started
 
+Coming Soon!
+
+### Entering the Site
+
+### To test functionality:
+
+#### As an Admin:
+
+#### As a User
+
+### Difficulties and Challenges
+
+### Lessons Learned
+
+### How this Application was Developed
+
+### Planning
+
+#### Wireframe
+
+#### ERD
+
+#### Proposal
+<a href="https://docs.google.com/document/d/1Bi7QjG2LDypM9j_Jb0mkQebqi_aKHxTT4Zxehvba_2k/edit?usp=sharing" target="_blank">Link to Capstone Proposal</a>
+
+### Created by: Laura Furnivall
+<a href="https://github.com/laurafurnivall" target="_blank"><img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white" alt="Laura Furnivall GitHub" style="height: auto !important;width: auto !important;" /></a> <a href="https://www.linkedin.com/in/laurafurnivall/" target="_blank"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="Laura Furnivall LinkedIn" style="height: auto !important;width: auto !important;" /></a>
