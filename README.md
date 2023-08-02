@@ -56,7 +56,11 @@ Coming Soon!
 
 #### Wireframe
 
+![Zoo Etc](https://github.com/laurafurnivall/ZooEtc/assets/122993299/401ab5e3-d186-48ee-9fbd-986375c8c137)
+
 #### ERD
+
+![ERDZooEtc](https://github.com/laurafurnivall/ZooEtc/assets/122993299/be946498-d5c3-4390-8699-e60e2cd0620a)
 
 #### Proposal
 <a href="https://docs.google.com/document/d/1Bi7QjG2LDypM9j_Jb0mkQebqi_aKHxTT4Zxehvba_2k/edit?usp=sharing" target="_blank">Link to Capstone Proposal</a>
