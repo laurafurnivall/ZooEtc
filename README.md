@@ -40,20 +40,30 @@ Coming Soon!
 
 ### Entering the Site
 
+Coming Soon!
+
 ### To test functionality:
+
+Coming Soon!
 
 #### As an Admin:
 
-#### As a User
+Coming Soon!
+
+#### As a User:
+
+Coming Soon!
 
 ### Difficulties and Challenges
-
-### Lessons Learned
+1. The biggest challenge was my planned MVP was large, and so finding the time to finish what was promised was difficult.
+2. As far as actual programming went, this project really honey my comprehension of how serverside and client side meet. In previous course work I struggled with that, and I feel like the repetitive nature a creating multiple CRUD functualties for different objects really helped cement my understanding.
+3. Another challenge was just feeling confident in my understanding, my knowledge is at a base level, so I definitely took opportunities during downtime to research concepts I did't understand as well and often left notes within my code to step through some of those moments. 
 
 ### How this Application was Developed
 
-### Planning
+Coming Soon!
 
+### Planning
 #### Wireframe
 
 ![Zoo Etc](https://github.com/laurafurnivall/ZooEtc/assets/122993299/401ab5e3-d186-48ee-9fbd-986375c8c137)
