@@ -12,11 +12,11 @@ Any zoo professional looking looking to make educated decisions about their care
 
 After being apart of the zoo community for over ten years, I heard continuous conversations about:<BR>
 
-  What is the best gear to buy?<BR>
-  What does each zoo has to offer to their employees? <BR>
-  What's the best enrichment to give to a certain species? <BR>
-  What browse is given to which species? <BR>
-  And where to find other meaningful resources to zoo professionals?<BR>
+ • What is the best gear to buy?<BR>
+ • What does each zoo has to offer to their employees? <BR>
+ • What's the best enrichment to give to a certain species? <BR>
+ • What browse is given to which species? <BR>
+ • And where to find other meaningful resources to zoo professionals?<BR>
   
 With those conversations, I had the idea to create a one stop shop of resources for zoo professionals. 
 The idea of Zoo Etc. was born years before I followed the path of a software developer out of that need, and being able to execute a base version of it, with the potential to grow it more, is truly exciting. 
