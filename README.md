@@ -76,26 +76,10 @@ Demo User Credentials<br>
 
 Once logged in, you will be directed to the Home Page that displays a brief hello and the purpose of the application. From their, depending on you the user, you will be able to perform basic CRUD  for zoos, reviews and joblistings. 
 
-### To test functionality:
-
-Coming Soon!
-
-#### As an Admin:
-
-Coming Soon!
-
-#### As a User:
-
-Coming Soon!
-
 ### Difficulties and Challenges
 1. The biggest challenge was my planned MVP was large, and so finding the time to finish what was promised was difficult.
 2. As far as actual programming went, this project really honed my comprehension of how server side and client side meet. In previous course work, I struggled with that, and I feel like the repetitive nature of creating multiple CRUD functualties for different objects really helped cement my understanding.
 3. Another challenge was just feeling confident in my understanding, my knowledge is at a base level, so I definitely took opportunities during downtime to research concepts I did't understand as well and often left notes within my code to step through some of those moments. 
-
-### How this Application was Developed
-
-Coming Soon!
 
 ### Planning
 #### Wireframe
