@@ -45,8 +45,22 @@ So, with all that said, if you work in the zoo world, this application is for yo
 Coming Soon!
 
 ### Getting Started
+## SetUp
 
-Coming Soon!
+1.  Clone this repository
+2.  ```cd``` into the Client/ZooEtc directory
+3.  Install the necessary packages<br>
+• ```npm install```<br>
+• ```npm install react-bootstrap bootstrap```<br>
+• ```npm install antd ```<br>
+• ```npm install reactstrap react react-dom```<br>
+•  ```npm install firebase ```<br>
+•  ```npm install @ant-design/icons ```<br>
+•  ```npm install react-router-dom ```<br>
+•  ```npm install react-scripts```
+5. In the SQL folder, open both files within and execute the create file and then the seed data to establish the database.
+6. Open the solution file in Visual Studio and run.
+7.  In the terminal, ```cd``` the Client/ZooEtc folder, run ```npm start```
 
 ### Entering the Site
 
