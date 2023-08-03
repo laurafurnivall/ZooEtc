@@ -60,11 +60,20 @@ Coming Soon!
 •  ```npm install react-scripts```
 5. In the SQL folder, open both files within and execute the create file and then the seed data to establish the database.
 6. Open the solution file in Visual Studio and run.
-7.  In the terminal, ```cd``` the Client/ZooEtc folder, run ```npm start```
+7.  In the terminal, ```cd``` into the Client/ZooEtc folder, run ```npm start```
 
 ### Entering the Site
 
-Coming Soon!
+Once the site launches, register by clicking on the "Register?" link.
+
+Fill in the required information on the form.
+     All users can view a list of zoos and gear, their ratings, and add their own review and ratings. Users can also view the current job listings.
+     Admin users can add, edit, delete zoos, reviews, gear, and job listings.
+
+Demo User Credentials<br>
+    User:   zoo@keeper.com<br>, password: password
+    Admin:  admin@keeper.com, password: password
+
 
 ### To test functionality:
 
