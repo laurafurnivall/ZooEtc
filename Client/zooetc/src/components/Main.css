@@ -21,3 +21,19 @@
     max-width: 500px;
 }
 
+.landingContent {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.landingLogo {
+    max-width: 400px;
+    margin: 20px 0px 20px 0px;
+}
+
+.landingDiv {
+    margin: 10px 0px 20px 30px;
+}
+

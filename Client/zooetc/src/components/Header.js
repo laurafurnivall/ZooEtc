@@ -52,9 +52,9 @@ export default function Header({ isLoggedIn, userProfile }) {
                     Hello, {userProfile?.firstName}
                   </DropdownToggle>
                   <DropdownMenu className='navDrop'>
-                    <DropdownItem  onClick={() => navigate("/ZooReviews/MyReviews")}>My Zoo Reviews</DropdownItem>
+                    {/* <DropdownItem  onClick={() => navigate("/ZooReviews/MyReviews")}>My Zoo Reviews</DropdownItem> */}
                     <DropdownItem  onClick={() => navigate("/GearReviews/MyReviews")}>My Gear Reviews</DropdownItem>
-                    <DropdownItem  onClick={() => navigate("/JobListings")}>My Job Listings</DropdownItem>
+                    {/* <DropdownItem  onClick={() => navigate("/JobListings")}>My Job Listings</DropdownItem> */}
                     {isLoggedIn && userProfile && userProfile.isAdmin === true ? (
                       <><DropdownItem divider />
                         <DropdownItem onClick={() => navigate("/Types")}>Type Management</DropdownItem>
