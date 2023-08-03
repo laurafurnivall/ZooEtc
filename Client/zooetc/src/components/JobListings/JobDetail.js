@@ -49,7 +49,7 @@ export default function JobDetails({ userProfile }) {
                 <Content>
                     <Descriptions title={job.title} layout="horizontal" column={1} >
 
-                        <Descriptions.Item label="Zoo">{job.zoo.zooName}</Descriptions.Item>
+                        <Descriptions.Item label="Zoo"><Link to={`/Zoos/${job.zoo.id}`}>{job.zoo.zooName}</Link></Descriptions.Item>
 
                         <Descriptions.Item label="Location">{job.zoo.location}</Descriptions.Item>
                         <Descriptions.Item label="Phone Number">{job.zoo.phoneNumber}</Descriptions.Item>

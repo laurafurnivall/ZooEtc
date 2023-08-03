@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Tooltip } from 'antd';
 import Meta from "antd/es/card/Meta";
 
-export default function GearCard({ userProfile, id, title, description, purchaseUrl, imageUrl, showConfirm, averageRating }) {
+export default function GearCard({ types, userProfile, id, title, description, purchaseUrl, imageUrl, showConfirm, averageRating }) {
     const navigate = useNavigate();
     const average = averageRating.reduce((total, rating) => total + rating, 0) / averageRating.length;
     //total is accumulating the rating , and total starts at 0, then dividing by the number of items in the array -averageRating
@@ -54,6 +54,7 @@ export default function GearCard({ userProfile, id, title, description, purchase
             </CardTitle>
             <CardBody>
                 Average Rating: <Rate className="gearRating" disabled defaultValue={average} />
+                <p className="typesInfo">Types: {types.map(t => t.type).join(', ')}</p>
             </CardBody>
             <Meta className="metaCard"
                 description={description}

@@ -65,6 +65,7 @@ export default function GearList({ searchTermState, userProfile }) {
                 imageUrl={g.imageUrl}
                 userProfile={userProfile}
                 showConfirm={showConfirm}
+                types={g.types}
                 averageRating={g.gearReviews.map((gr) => gr.averageRating)}
             />)
         }

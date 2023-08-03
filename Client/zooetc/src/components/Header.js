@@ -45,13 +45,13 @@ export default function Header({ isLoggedIn, userProfile }) {
                 </NavItem>
               </>
             }
-            <Nav navbar>
+            <Nav>
               {isLoggedIn &&
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
+                  <DropdownToggle className='navDrop'nav caret>
                     Hello, {userProfile?.firstName}
                   </DropdownToggle>
-                  <DropdownMenu>
+                  <DropdownMenu className='navDrop'>
                     <DropdownItem  onClick={() => navigate("/ZooReviews/MyReviews")}>My Zoo Reviews</DropdownItem>
                     <DropdownItem  onClick={() => navigate("/GearReviews/MyReviews")}>My Gear Reviews</DropdownItem>
                     <DropdownItem  onClick={() => navigate("/JobListings")}>My Job Listings</DropdownItem>
