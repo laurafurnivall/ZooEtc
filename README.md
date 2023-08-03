@@ -37,18 +37,43 @@ So, with all that said, if you work in the zoo world, this application is for yo
 ![C#](https://img.shields.io/badge/C%23%20-%23239120.svg?&style=for-the-badge&logo=c-sharp&logoColor=white) 
 ![.NET](https://img.shields.io/badge/.NET%20-%235C2D91.svg?&style=for-the-badge&logo=.net&logoColor=white) 
 ![SQL Server](https://img.shields.io/badge/SQL_Server%20-%23CC2927.svg?&style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
+![Ant Design](https://img.shields.io/badge/Ant%20Design-1890FF?style=for-the-badge&logo=antdesign&logoColor=white)
+
 
 ### Demo of Application
 
 Coming Soon!
 
 ### Getting Started
+#### SetUp
 
-Coming Soon!
+1.  Clone this repository
+2.  ```cd``` into the Client/ZooEtc directory
+3.  Install the necessary packages<br>
+• ```npm install```<br>
+• ```npm install react-bootstrap bootstrap```<br>
+• ```npm install antd ```<br>
+• ```npm install reactstrap react react-dom```<br>
+•  ```npm install firebase ```<br>
+•  ```npm install @ant-design/icons ```<br>
+•  ```npm install react-router-dom ```<br>
+•  ```npm install react-scripts```
+5. In the SQL folder, open both files within and execute the create file and then the seed data to establish the database.
+6. Open the solution file in Visual Studio and run.
+7.  In the terminal, ```cd``` into the Client/ZooEtc folder, run ```npm start```
 
 ### Entering the Site
 
-Coming Soon!
+Once the site launches, register by clicking on the "Register?" link.
+
+Fill in the required information on the form.
+     All users can view a list of zoos and gear, their ratings, and add their own review and ratings. Users can also view the current job listings.
+     Admin users can add, edit, delete zoos, reviews, gear, and job listings.
+
+Demo User Credentials<br>
+    User:   zoo@keeper.com<br>, password: password
+    Admin:  admin@keeper.com, password: password
+
 
 ### To test functionality:
 
