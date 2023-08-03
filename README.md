@@ -37,7 +37,8 @@ So, with all that said, if you work in the zoo world, this application is for yo
 ![C#](https://img.shields.io/badge/C%23%20-%23239120.svg?&style=for-the-badge&logo=c-sharp&logoColor=white) 
 ![.NET](https://img.shields.io/badge/.NET%20-%235C2D91.svg?&style=for-the-badge&logo=.net&logoColor=white) 
 ![SQL Server](https://img.shields.io/badge/SQL_Server%20-%23CC2927.svg?&style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
-![Ant Design](https://img.shields.io/npm/v/ant-design)
+![Ant Design](https://img.shields.io/badge/Ant%20Design-1890FF?style=for-the-badge&logo=antdesign&logoColor=white)
+
 
 ### Demo of Application
 
