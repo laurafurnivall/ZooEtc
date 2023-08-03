@@ -45,7 +45,7 @@ So, with all that said, if you work in the zoo world, this application is for yo
 Coming Soon!
 
 ### Getting Started
-## SetUp
+#### SetUp
 
 1.  Clone this repository
 2.  ```cd``` into the Client/ZooEtc directory
