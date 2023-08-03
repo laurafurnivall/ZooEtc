@@ -71,9 +71,10 @@ Fill in the required information on the form.
      Admin users can add, edit, delete zoos, reviews, gear, and job listings.
 
 Demo User Credentials<br>
-    User:   zoo@keeper.com<br>, password: password
+    User:   zoo@keeper.com, password: password<br>
     Admin:  admin@keeper.com, password: password
 
+Once logged in, you will be directed to the Home Page that displays a brief hello and the purpose of the application. From their, depending on you the user, you will be able to perform basic CRUD  for zoos, reviews and joblistings. 
 
 ### To test functionality:
 
